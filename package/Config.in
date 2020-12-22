@@ -3,5 +3,4 @@ source "$BR2_EXTERNAL_ROCKPIS_PATH/package/gtkiostream/Config.in"
 source "$BR2_EXTERNAL_ROCKPIS_PATH/package/rkbin/Config.in"
 source "$BR2_EXTERNAL_ROCKPIS_PATH/package/rktools/Config.in"
 source "$BR2_EXTERNAL_ROCKPIS_PATH/package/rkdevice/Config.in"
-source "$BR2_EXTERNAL_ROCKPIS_PATH/package/rkdeveloptool/Config.in"
 endmenu
