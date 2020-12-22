@@ -30,12 +30,6 @@ git clone git@github.com:flatmax/buildroot.rk3308.git buildroot.rk3308
 source buildroot.rk3308/setup.rk3308.sh yourPath/buildroot
 ```
 
-# ensure you have your buildroot net downloads directory setup
-
-```
-mkdir yourPath/buildroot.dl
-```
-
 # build the system
 
 ```

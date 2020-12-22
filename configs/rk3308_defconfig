@@ -57,4 +57,4 @@ BR2_PACKAGE_BUSYBOX_CONFIG_FRAGMENT_FILES="$(BR2_EXTERNAL)/board/RK3308/busybox.
 BR2_ROOTFS_OVERLAY="$(BR2_EXTERNAL)/overlays"
 
 # where to store downloads
-BR2_DL_DIR="$(BASE_DIR)/../../buildroot.dl"
+#BR2_DL_DIR="$(BASE_DIR)/../../buildroot.dl"
