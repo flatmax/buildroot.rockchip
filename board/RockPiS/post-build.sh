@@ -25,7 +25,6 @@ if [ $RKCHIP = "RK3308" ]; then
   fi
 fi
 
-
 # first loader creation
 cd $RKBIN; ${RKTOOLS}/boot_merger --replace tools/rk_tools/ ./ ${RKBIN}/RKBOOT/${RKCHIP_LOADER}MINIALL.ini
 echo "pack loader okay! Input: ${RKBIN}/RKBOOT/${RKCHIP_LOADER}MINIALL.ini"
@@ -46,18 +45,6 @@ boardDir=`dirname $_`
 echo $boardDir
 $boardDir/packTrustImage.sh $RKCHIP
 
-$boardDir/makeImage.sh 
-
-# trust creation
-
-#output/build/rkbin-aae5f990fcf0dd604f7955cca7666b904d48ef09/tools/loaderimage \
-#	--pack \
-#	--uboot output/images/u-boot-dtb.bin \
-#	output/images/uboot.img \
-#	0x600000 \
-#	--size 1024 1
-
-#$BR2_EXTERNAL_ROCKPIS_PATH/board/RockPiS/mkidbloaderimg.sh
-#$BR2_EXTERNAL_ROCKPIS_PATH/board/RockPiS/mktrustimg.sh
+$boardDir/makeImage.sh
 
 #$BASE_DIR/../support/scripts/genimage.sh -c $BR2_EXTERNAL_ROCKPIS_PATH/board/RockPiS/genimage.cfg
