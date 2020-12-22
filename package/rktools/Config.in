@@ -1,0 +1,4 @@
+config BR2_PACKAGE_RKTOOLS
+        bool "rktools"
+        help
+          Rockchip tools for image building

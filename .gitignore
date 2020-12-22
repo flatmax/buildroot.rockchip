@@ -1,0 +1,13 @@
+*~
+.ssh
+board/raspberrypi3-64
+neo4_defconfig
+overlays/lib/firmware/rockchip
+overlays/usr/share/alsa
+uboot.tgz
+old
+#*#
+*/#*#
+*/*/#*#
+configs/nanopi_neo_defconfig
+wpa_supplicant.conf

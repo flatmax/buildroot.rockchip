@@ -1,0 +1,14 @@
+config BR2_PACKAGE_GTKIOSTREAM
+        bool "gtkiostream"
+	select BR2_PACKAGE_EIGEN
+  select BR2_PACKAGE_EIGEN_UNSUPPORTED_MODULES
+	select BR2_PACKAGE_FFTW
+	select BR2_PACKAGE_ALSA_LIB
+	select BR2_PACKAGE_LIBSAMPLERATE
+  select BR2_PACKAGE_ALSA_UTILS
+  select BR2_PACKAGE_ALSA_UTILS_AMIXER
+  select BR2_PACKAGE_ALSA_UTILS_APLAY
+        help
+          gtkiostream package
+
+          https://sourceforge.net/projects/gtkiostream
