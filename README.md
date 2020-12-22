@@ -9,7 +9,7 @@ Clone buildroot. For example :
 
 ```
 cd yourPath
-git clone git://git.busybox.net/buildroot buildroot.rk3308
+git clone git://git.busybox.net/buildroot buildroot
 ```
 
 Make sure you have requirements :
@@ -26,7 +26,7 @@ git clone git@github.com:flatmax/buildroot.rk3308.git buildroot.rk3308
 # To make the system
 
 ```
-. buildroot.rk3308/setup.RockPiS.sh yourPath/buildroot.rk3308
+source buildroot.rk3308/setup.RockPiS.sh yourPath/buildroot
 ```
 
 # ensure you have your buildroot net downloads directory setup
