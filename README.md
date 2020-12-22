@@ -2,6 +2,7 @@
 
 It seems that there is no simple RK3308 buildroot system.
 This repo generates a bottable sdcard image for the RK3308 platform.
+It is a 64 bit image.
 
 # Initial setup
 
@@ -26,7 +27,7 @@ git clone git@github.com:flatmax/buildroot.rk3308.git buildroot.rk3308
 # To make the system
 
 ```
-source buildroot.rk3308/setup.RockPiS.sh yourPath/buildroot
+source buildroot.rk3308/setup.rk3308.sh yourPath/buildroot
 ```
 
 # ensure you have your buildroot net downloads directory setup

@@ -1,1 +1,1 @@
-include $(BR2_EXTERNAL_ROCKPIS_PATH)/package/package.mk
+include $(BR2_EXTERNAL_RK3308_PATH)/package/package.mk

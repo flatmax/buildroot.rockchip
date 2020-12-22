@@ -5,7 +5,7 @@ ROCKDEV=$BINARIES_DIR/rk3308/Image
 mkdir -p $ROCKDEV
 
 # export PARAMETER=$BINARIES_DIR/device/rk3308/parameter-64bit.txt
-export PARAMETER=$BR2_EXTERNAL_ROCKPIS_PATH/board/RockPiS/parameter-64bit-vanilla.txt
+export PARAMETER=$BR2_EXTERNAL_RK3308_PATH/board/RK3308/parameter-64bit-vanilla.txt
 
 export PACKAGE_FILE=$BINARIES_DIR/tools/linux/Linux_Pack_Firmware/rockdev/rk3308-package-file
 
@@ -68,7 +68,7 @@ echo
 echo
 echo
 echo write your image to the sdcard, don\'t forget to change OF=/dev/sdf to your sdcard drive ...
-echo use the following command ... 
+echo use the following command ...
 echo
 echo 'OF=/dev/sdf; rootDrive=`mount | grep " / " | grep $OF`; if [ -z $rootDrive ]; then sudo umount $OF[123456789]; sudo dd if=output/images/sdcard2.img of=$OF; else echo you are trying to overwrite your root drive; fi'
 echo
