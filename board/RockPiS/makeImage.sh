@@ -61,9 +61,18 @@ $BINARIES_DIR/tools/linux/Linux_Pack_Firmware/rockdev/rkImageMaker -RK3308 ./Min
 echo "Making update.img OK."
 ln -s $ROCKDEV/../update.img $ROCKDEV/../../sdcard2.img
 
-echo write your image :
-echo "OF=/dev/sdf; rootDrive=`mount | grep ' / ' | grep $OF`; if [ -z $rootDrive ]; then sudo umount $OF[123456789]; sudo dd if=output/images/sdcard2.img of=$OF; else echo you are trying to overwrite your root drive; fi"
-
+echo
+echo
+echo compilation done
+echo
+echo
+echo
+echo write your image to the sdcard, don\'t forget to change OF=/dev/sdf to your sdcard drive ...
+echo use the following command ... 
+echo
+echo 'OF=/dev/sdf; rootDrive=`mount | grep " / " | grep $OF`; if [ -z $rootDrive ]; then sudo umount $OF[123456789]; sudo dd if=output/images/sdcard2.img of=$OF; else echo you are trying to overwrite your root drive; fi'
+echo
+echo
 #echo "Press any key to quit:"
 #read -n1 -s key
 exit $?
