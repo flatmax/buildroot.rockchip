@@ -50,3 +50,6 @@ OF=/dev/sdf; rootDrive=`mount | grep ' / ' | grep $OF`; if [ -z $rootDrive ]; th
 # using
 
 ssh in as user root, no pass. Or connect to the console debug uart with a serial cable.
+
+# TODO
+Try to find suitable rock-chip boot binaries on github. rk3308_ddr_589MHz_uart0_m0_v1.26.bin can't be found in rkbin.
