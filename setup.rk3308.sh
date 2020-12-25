@@ -29,6 +29,8 @@ else
   	return;
   fi
 
+  echo The setup script is in this directory $1
+
   cd $BR_REPO_PATH
 
   if [ ! -z $BR_DEFCONFIG ]; then
@@ -38,7 +40,7 @@ else
     cat $CUSTOM_PATH/configs/$BR_RK3308_DEFCONFIG >> $CUSTOM_PATH/configs/$BR_DEFCONFIG
     make BR2_EXTERNAL=$CUSTOM_PATH $BR_DEFCONFIG
   else
-    echo no original defconfig defined
+    echo No original defconfig defined, no problem using $BR_RK3308_DEFCONFIG
     make BR2_EXTERNAL=$CUSTOM_PATH $BR_RK3308_DEFCONFIG
   fi
 fi
