@@ -1,0 +1,76 @@
+Index: u-boot/Makefile
+===================================================================
+--- u-boot.orig/Makefile
++++ u-boot/Makefile
+@@ -360,6 +360,7 @@ KBUILD_CPPFLAGS := -D__KERNEL__ -D__UBOO
+ KBUILD_CFLAGS   := -Wall -Wstrict-prototypes \
+ 		   -Wno-format-security \
+ 		   -fno-builtin -ffreestanding
++KBUILD_CFLAGS += $(call cc-disable-warning, address-of-packed-member)		   
+ KBUILD_CFLAGS	+= -fshort-wchar -Werror
+ KBUILD_AFLAGS   := -D__ASSEMBLY__
+ 
+Index: u-boot/arch/arm/dts/Makefile
+===================================================================
+--- u-boot.orig/arch/arm/dts/Makefile
++++ u-boot/arch/arm/dts/Makefile
+@@ -28,11 +28,9 @@ dtb-$(CONFIG_EXYNOS5) += exynos5250-arnd
+ 	exynos5422-odroidxu3.dtb
+ dtb-$(CONFIG_EXYNOS7420) += exynos7420-espresso7420.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += \
+-	rk3036-sdk.dtb \
+ 	rk3066a-mk808.dtb \
+ 	rk3126-evb.dtb \
+ 	rk3128-evb.dtb \
+-	rk3188-radxarock.dtb \
+ 	rk3288-evb.dtb \
+ 	rk3288-fennec.dtb \
+ 	rk3288-firefly.dtb \
+@@ -48,16 +46,19 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += \
+ 	rk3308-evb.dtb \
+ 	rk3308-rock-pi-s.dtb \
+ 	rk3328-evb.dtb \
+-	rk3368-lion.dtb \
+-	rk3368-sheep.dtb \
+-	rk3368-geekbox.dtb \
+-	rk3368-px5-evb.dtb \
+ 	rk3399-evb.dtb \
+ 	rk3399-firefly.dtb \
+ 	rk3399-puma-ddr1333.dtb \
+ 	rk3399-puma-ddr1600.dtb \
+ 	rk3399-puma-ddr1866.dtb \
+ 	rv1108-evb.dtb
++#	rk3036-sdk.dtb \
++# rk3188-radxarock.dtb \
++# rk3368-lion.dtb \
++# rk3368-sheep.dtb \
++# rk3368-geekbox.dtb \
++# rk3368-px5-evb.dtb \
++
+ dtb-$(CONFIG_ARCH_MESON) += \
+ 	meson-gxbb-odroidc2.dtb
+ dtb-$(CONFIG_TEGRA) += tegra20-harmony.dtb \
+Index: u-boot/scripts/dtc/dtc-lexer.l
+===================================================================
+--- u-boot.orig/scripts/dtc/dtc-lexer.l
++++ u-boot/scripts/dtc/dtc-lexer.l
+@@ -38,7 +38,6 @@ LINECOMMENT	"//".*\n
+ #include "srcpos.h"
+ #include "dtc-parser.tab.h"
+ 
+-YYLTYPE yylloc;
+ extern bool treesource_error;
+ 
+ /* CAUTION: this will stop working if we ever use yyless() or yyunput() */
+Index: u-boot/scripts/dtc/dtc-lexer.lex.c_shipped
+===================================================================
+--- u-boot.orig/scripts/dtc/dtc-lexer.lex.c_shipped
++++ u-boot/scripts/dtc/dtc-lexer.lex.c_shipped
+@@ -631,7 +631,6 @@ char *yytext;
+ #include "srcpos.h"
+ #include "dtc-parser.tab.h"
+ 
+-YYLTYPE yylloc;
+ extern bool treesource_error;
+ 
+ /* CAUTION: this will stop working if we ever use yyless() or yyunput() */
