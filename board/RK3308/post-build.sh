@@ -37,7 +37,7 @@ SEC=0
 PATH=$BINARIES_DIR/trust.img
 EOF
 
-$ubootName/tools/trust_merger --size 1024 1 ${ubootName}/trust.ini
+$RKBIN/tools/trust_merger --size 1024 1 ${ubootName}/trust.ini
 # cat $ubootName/.config | grep CONFIG_SYS_TEXT_BASE | sed 's/^.*=//'
 # ubootAdd=`cat $ubootName/.config | grep CONFIG_SYS_TEXT_BASE | sed 's/^.*=//'`
 # echo uboot address = $ubootAdd
