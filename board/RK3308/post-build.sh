@@ -53,6 +53,10 @@ cat $boardDir/rk3308_miniloader_emmc_port_support_sd_20190717.bin >> $BINARIES_D
 # # cp idbloader.img ${OUT}/u-boot/
 # # cp ../rkbin/bin/rk33/rk3308_loader_uart0_m0_emmc_port_support_sd_20190717.bin ${OUT}/u-boot
 
+# Generate the boot script
+$ubootName/tools/mkimage -C none -A arm -T script -d $BR2_EXTERNAL_RK3308_PATH/board/RK3308/boot.cmd $BINARIES_DIR/boot.scr
+# Put the device trees into the correct location
+mkdir -p $BINARIES_DIR/rockchip; cp -a $BINARIES_DIR/*.dtb $BINARIES_DIR/rockchip
 $BASE_DIR/../support/scripts/genimage.sh -c $BR2_EXTERNAL_RK3308_PATH/board/RK3308/genimage.cfg
 
 echo
