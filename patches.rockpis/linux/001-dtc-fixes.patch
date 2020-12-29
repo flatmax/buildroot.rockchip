@@ -1,0 +1,12 @@
+Index: linux-1f77a85486f77fa30e90636c15d15aa9b6fd3ffc/scripts/dtc/dtc-parser.tab.c_shipped
+===================================================================
+--- linux-1f77a85486f77fa30e90636c15d15aa9b6fd3ffc.orig/scripts/dtc/dtc-parser.tab.c_shipped
++++ linux-1f77a85486f77fa30e90636c15d15aa9b6fd3ffc/scripts/dtc/dtc-parser.tab.c_shipped
+@@ -190,7 +190,6 @@ struct YYLTYPE
+ 
+ 
+ extern YYSTYPE yylval;
+-extern YYLTYPE yylloc;
+ int yyparse (void);
+ 
+ #endif /* !YY_YY_DTC_PARSER_TAB_H_INCLUDED  */
