@@ -27,7 +27,8 @@ git clone git@github.com:flatmax/buildroot.rk3308.git buildroot.rk3308
 # To make the system
 
 ```
-source buildroot.rk3308/setup.rk3308.sh yourPath/buildroot
+# For the RockPi S
+source buildroot.rk3308/setup.rockPiS.sh yourPath/buildroot
 ```
 
 # build the system
@@ -44,7 +45,7 @@ NOTE: The following command will overwrite any disk attached to /dev/sdg
 NOTE: Be super careful here!
 
 ```
-OF=/dev/sdf; rootDrive=`mount | grep ' / ' | grep $OF`; if [ -z $rootDrive ]; then sudo umount $OF[123456789]; sudo dd if=output/images/sdcard.img of=$OF; else echo you are trying to overwrite your root drive; fi
+OF=/dev/sdf; rootDrive=`mount | grep " / " | grep $OF`; if [ -z $rootDrive ]; then sudo umount $OF[123456789]; sudo dd if=output/images/sdcard.img of=$OF; else echo you are trying to overwrite your root drive; fi
 ```
 
 # using
