@@ -41,7 +41,8 @@ make
 Insert your sdcard into your drive and make sure it isn't mounted. Write the image to the disk.
 
 NOTE: The following command will overwrite any disk attached to $OF
-NOTE: Be super careful here!
+
+NOTE: Be super careful here! I have done my best to protect you, but beware and protect yourself.
 
 ```
 OF=/dev/sdf; rootDrive=`mount | grep " / " | grep $OF`; if [ -z $rootDrive ]; then sudo umount $OF[123456789]; sudo dd if=output/images/sdcard.img of=$OF; else echo you are trying to overwrite your root drive; fi
