@@ -1,8 +1,7 @@
 # RK3308 buildroot system
 
-It seems that there is no simple RK3308 buildroot system.
-This repo generates a bottable sdcard image for the RK3308 platform.
-It is a 64 bit image.
+This repo generates a bootable sdcard image for the RK3308 platform.
+It is a 64 bit image. Based on buildroot, this directory is an external buildroot tree - it integrates into the main buildroot tree seamlessly.
 
 # Initial setup
 
