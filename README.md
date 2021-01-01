@@ -40,7 +40,7 @@ make
 
 Insert your sdcard into your drive and make sure it isn't mounted. Write the image to the disk.
 
-NOTE: The following command will overwrite any disk attached to /dev/sdg
+NOTE: The following command will overwrite any disk attached to $OF
 NOTE: Be super careful here!
 
 ```
