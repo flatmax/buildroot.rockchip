@@ -6,13 +6,22 @@ RKCHIP_LOADER=$2
 RKCHIP=$2
 
 if [ $RKCHIP = "RK3308" ]; then
-  if grep -q '^CONFIG_ARM64_BOOT_AARCH32=y' ${OUTDIR}/.config ; then
+  if grep -q '^CONFIG_ARM64_BOOT_AARCH32=y' ${BASE_DIR}/../.config ; then
     PLATFORM_UBOOT_IMG_SIZE="--size 512 2"
     PLATFORM_AARCH32="AARCH32"
   else
     PLATFORM_UBOOT_IMG_SIZE="--size 1024 2"
   fi
 fi
+
+# copy uboot variable file over
+cp -a $BR2_EXTERNAL_RK3308_PATH/board/RK3308/vars.txt $BINARIES_DIR/
+
+# copy overlays over
+linuxDir=`find $BASE_DIR/build -name 'vmlinux' -type f | xargs dirname`
+rm -rf $BINARIES_DIR/rockchip/overlays
+mkdir -p $BINARIES_DIR/rockchip/overlays
+cp -a ${linuxDir}/arch/arm64/boot/dts/rockchip/overlay/*.dtbo $BINARIES_DIR/rockchip/overlays
 
 ubootName=`find $BASE_DIR/build -name 'uboot-*' -type d`
 boardDir=`dirname $_`

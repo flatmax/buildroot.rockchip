@@ -1,0 +1,1 @@
+overlays=rk3308-uart0
