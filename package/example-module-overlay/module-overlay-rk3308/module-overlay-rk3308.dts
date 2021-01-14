@@ -1,0 +1,22 @@
+/dts-v1/;
+/plugin/;
+
+// Audioinjector.net example dts overlay for the rk3308
+
+/ {
+	compatible = "rockchip,rk3308";
+
+	fragment@0 {
+		target = <&spi0>;
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@1 {
+		target = <&i2c2>;
+		__overlay__ {
+			status = "okay";
+		};
+	};
+};

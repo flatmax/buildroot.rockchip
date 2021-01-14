@@ -1,0 +1,7 @@
+config BR2_PACKAGE_EXAMPLE_MODULE_OVERLAY
+	bool "example-module-overlay"
+	depends on BR2_LINUX_KERNEL
+	help
+	  Example module overlay.
+
+	  Lead in for developers to add modules and overlays which are out of tree.

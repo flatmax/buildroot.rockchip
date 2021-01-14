@@ -3,4 +3,5 @@ source "$BR2_EXTERNAL_RK3308_PATH/package/gtkiostream/Config.in"
 source "$BR2_EXTERNAL_RK3308_PATH/package/rkbin/Config.in"
 source "$BR2_EXTERNAL_RK3308_PATH/package/rktools/Config.in"
 source "$BR2_EXTERNAL_RK3308_PATH/package/rkdevice/Config.in"
+source "$BR2_EXTERNAL_RK3308_PATH/package/example-module-overlay/Config.in"
 endmenu

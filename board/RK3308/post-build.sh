@@ -19,7 +19,6 @@ cp -a $BR2_EXTERNAL_RK3308_PATH/board/RK3308/vars.txt $BINARIES_DIR/
 
 # copy overlays over
 linuxDir=`find $BASE_DIR/build -name 'vmlinux' -type f | xargs dirname`
-rm -rf $BINARIES_DIR/rockchip/overlays
 mkdir -p $BINARIES_DIR/rockchip/overlays
 cp -a ${linuxDir}/arch/arm64/boot/dts/rockchip/overlay/*.dtbo $BINARIES_DIR/rockchip/overlays
 

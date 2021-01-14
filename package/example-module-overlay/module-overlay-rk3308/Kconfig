@@ -1,0 +1,6 @@
+config SND_SOC_MODULE_OVERLAY_RK3308
+        tristate "RK3308 platform machine driver example"
+        select SND_SOC_WM8731
+        default n
+        help
+          Audio Injector ALSA machine driver for the rk3308 (e.g. RockPi s) platform.
