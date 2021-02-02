@@ -1,5 +1,5 @@
-BR2_TARGET_GENERIC_HOSTNAME="rk3308"
-BR2_TARGET_GENERIC_ISSUE="Welcome to an rk3308 OS"
+BR2_TARGET_GENERIC_HOSTNAME="RockPiS"
+BR2_TARGET_GENERIC_ISSUE="Welcome to a RockPi S OS"
 
 # board/compiler target setup
 BR2_aarch64=y
