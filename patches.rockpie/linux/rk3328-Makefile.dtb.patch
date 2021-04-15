@@ -1,0 +1,12 @@
+Index: linux-linux-5.11.y/arch/arm64/boot/dts/rockchip/Makefile
+===================================================================
+--- linux-linux-5.11.y.orig/arch/arm64/boot/dts/rockchip/Makefile
++++ linux-linux-5.11.y/arch/arm64/boot/dts/rockchip/Makefile
+@@ -6,7 +6,6 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3328-na
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3328-orangepi-r1-plus.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3328-roc-pc.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3328-rock-pi-e.dtb
+-dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3328-z28pro.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-kobol-helios64.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-nanopi-m4v2.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-nanopi-r4s.dtb

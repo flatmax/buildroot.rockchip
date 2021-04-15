@@ -1,5 +1,7 @@
 # RK3308 buildroot system
 
+Now builds for rk3308 and rk3328
+
 This repo generates a bootable sdcard image for the RK3308 platform.
 It is a 64 bit image. Based on buildroot, this directory is an external buildroot tree - it integrates into the main buildroot tree seamlessly.
 
@@ -28,6 +30,8 @@ git clone git@github.com:flatmax/buildroot.rk3308.git buildroot.rk3308
 ```
 # For the RockPi S
 source buildroot.rk3308/setup.rockPiS.sh yourPath/buildroot
+# For the RockPi E (rk3328 based board)
+source buildroot.rk3308/setup.rockPiE.sh yourPath/buildroot
 ```
 
 # build the system
