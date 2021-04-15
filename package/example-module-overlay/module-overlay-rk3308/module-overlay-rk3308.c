@@ -21,6 +21,11 @@
 #include <linux/types.h>
 #include <linux/platform_device.h>
 
+#include <linux/version.h>
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(5,10,0)
+#include <linux/mod_devicetable.h>
+#endif
+
 static const struct of_device_id module_overlay_of_match[] = {
 	{ .compatible = "ai,audioinjector-example", },
 	{},
