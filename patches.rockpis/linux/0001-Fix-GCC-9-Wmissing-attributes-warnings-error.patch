@@ -1,0 +1,53 @@
+From 72ed8cca076dff8767132fb38227d626237f1ebe Mon Sep 17 00:00:00 2001
+From: nishantpoorswani <nishantpoorswani@gmail.com>
+Date: Wed, 28 Oct 2020 16:17:55 +0530
+Subject: [PATCH] GCC 9 adds the -Wmissing-attributes warnings(enabled by
+ -Wall), which trigger for all the init/cleanup_module aliases in the kernel
+ (defined by the module_init/exit macros), ending up being very noisy.
+
+These aliases point to the __init/__exit functions of a module,
+which are defined as __cold (among other attributes). However,
+the aliases themselves do not have the __cold attribute.
+
+Since the compiler behaves differently when compiling a __cold
+function as well as when compiling paths leading to calls
+to __cold functions, the warning is trying to point out
+the possibly-forgotten attribute in the alias.
+
+In order to keep the warning enabled, we choose to silence
+the warning by marking the aliases as __cold. This is possible
+marking either the extern declaration, the definition, or both.
+In order to avoid changing the behavior of callers, we do it
+only in the definition of the aliases (since those are not
+seen by any other TU).
+
+Ref: https://lore.kernel.org/lkml/20190123173707.GA16603@gmail.com/
+
+Signed-off-by: nishantpoorswani <nishantpoorswani@gmail.com>
+---
+ include/linux/module.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/include/linux/module.h b/include/linux/module.h
+index d79e1e55c1d4..fe9352361d5b 100644
+--- a/include/linux/module.h
++++ b/include/linux/module.h
+@@ -127,13 +127,13 @@ extern void cleanup_module(void);
+ #define module_init(initfn)					\
+ 	static inline initcall_t __maybe_unused __inittest(void)		\
+ 	{ return initfn; }					\
+-	int init_module(void) __attribute__((alias(#initfn)));
++	int init_module(void) __cold __attribute__((alias(#initfn)));
+ 
+ /* This is only required if you want to be unloadable. */
+ #define module_exit(exitfn)					\
+ 	static inline exitcall_t __maybe_unused __exittest(void)		\
+ 	{ return exitfn; }					\
+-	void cleanup_module(void) __attribute__((alias(#exitfn)));
++	void cleanup_module(void) __cold __attribute__((alias(#exitfn)));
+ 
+ #endif
+ 
+-- 
+2.26.2
+

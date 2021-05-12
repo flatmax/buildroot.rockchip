@@ -1,0 +1,13 @@
+Index: linux-stable-4.4-rockpis/Makefile
+===================================================================
+--- linux-stable-4.4-rockpis.orig/Makefile
++++ linux-stable-4.4-rockpis/Makefile
+@@ -648,6 +648,8 @@ KBUILD_CFLAGS	+= $(call cc-disable-warni
+ KBUILD_CFLAGS	+= $(call cc-disable-warning, format-truncation)
+ KBUILD_CFLAGS	+= $(call cc-disable-warning, format-overflow)
+ KBUILD_CFLAGS	+= $(call cc-disable-warning, address-of-packed-member)
++KBUILD_CFLAGS	+= $(call cc-disable-warning, stringop-overflow)
++KBUILD_CFLAGS	+= $(call cc-disable-warning, stringop-truncation)
+ KBUILD_CFLAGS	+= $(call cc-disable-warning, int-in-bool-context)
+ 
+ ifdef CONFIG_CC_OPTIMIZE_FOR_SIZE
