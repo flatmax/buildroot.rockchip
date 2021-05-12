@@ -1,0 +1,4 @@
+config BR2_PACKAGE_RTK_HCIATTACH
+        bool "rtl_hciattach"
+        help
+          rtl_hciattach package
