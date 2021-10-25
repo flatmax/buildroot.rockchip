@@ -1,4 +1,4 @@
-# RK3308 buildroot system
+# RK3308, RK3328 buildroot system
 
 Now builds for rk3308 and rk3328
 
@@ -22,16 +22,16 @@ sudo apt-get install -y patch texinfo wget git gawk curl lzma bc quilt
 
 Clone the external buildroot tree :
 ```
-git clone git@github.com:flatmax/buildroot.rk3308.git buildroot.rk3308
+git clone git@github.com:flatmax/buildroot.rockchip.git buildroot.rockchip.ext
 ```
 
 # To make the system
 
 ```
 # For the RockPi S
-source buildroot.rk3308/setup.rockPiS.sh yourPath/buildroot
+source buildroot.rockchip.ext/setup.rockPiS.sh yourPath/buildroot
 # For the RockPi E (rk3328 based board)
-source buildroot.rk3308/setup.rockPiE.sh yourPath/buildroot
+source buildroot.rockchip.ext/setup.rockPiE.sh yourPath/buildroot
 ```
 
 # build the system
