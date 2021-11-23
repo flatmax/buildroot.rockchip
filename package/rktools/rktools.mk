@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-RKTOOLS_VERSION = c6095b2b0d5cb8bb43ed993ec03543298729da5a
+RKTOOLS_VERSION = 26f53bb08db8ab9f4e6236e230f1ba3ae3a45434
 RKTOOLS_SITE = https://github.com/rockchip-linux/tools.git
 RKTOOLS_SITE_METHOD = git
 RKTOOLS_INSTALL_IMAGES = YES
