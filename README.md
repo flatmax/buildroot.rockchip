@@ -32,6 +32,8 @@ git clone git@github.com:flatmax/buildroot.rockchip.git buildroot.rockchip.ext
 source buildroot.rockchip.ext/setup.rockPiS.sh yourPath/buildroot
 # For the RockPi E (rk3328 based board)
 source buildroot.rockchip.ext/setup.rockPiE.sh yourPath/buildroot
+# For the Pine64 Quartz64 (rk3566 based board)
+source buildroot.rockchip.ext/setup.quartz64.sh yourPath/buildroot
 ```
 
 # build the system
@@ -52,7 +54,7 @@ OF=/dev/sdf; rootDrive=`mount | grep " / " | grep $OF`; if [ -z $rootDrive ]; th
 
 # using
 
-Connect to the console debug uart with a serial cable. Or, add the openssh-server pacakge to the buildsystem, then ssh in as user root, no pass. 
+Connect to the console debug uart with a serial cable. Or, add the openssh-server pacakge to the buildsystem, then ssh in as user root, no pass.
 
 # TODO
 Try to find suitable rock-chip boot binaries on github. rk3308_ddr_589MHz_uart0_m0_v1.26.bin can't be found in rkbin.
