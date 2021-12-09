@@ -1,5 +1,5 @@
-BR2_TARGET_GENERIC_HOSTNAME="Quartz64"
-BR2_TARGET_GENERIC_ISSUE="Welcome to a Quartz64 OS"
+BR2_TARGET_GENERIC_HOSTNAME="rock3a"
+BR2_TARGET_GENERIC_ISSUE="Welcome to the rock 3a board"
 
 # board/compiler target setup
 BR2_aarch64=y
