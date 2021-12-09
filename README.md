@@ -1,4 +1,4 @@
-# RK3308, RK3328, RK3566 buildroot system
+# RK3308, RK3328, RK356X buildroot system
 
 Now builds for rk3308, rk3328 and RK3566
 
