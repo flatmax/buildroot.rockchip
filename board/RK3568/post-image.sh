@@ -19,47 +19,9 @@ ubootName=`find $BASE_DIR/build -name 'uboot-*' -type d`
 boardDir=`dirname $_`
 
 # uboot creation
-# #$RKTOOLS/loaderimage --pack --uboot $ubootName/u-boot-dtb.bin $BINARIES_DIR/uboot.img 0x600000
-# #$ubootName/tools/loaderimage --pack --uboot $ubootName/u-boot-dtb.bin $BINARIES_DIR/uboot.img 0x600000 --size 1024 1
-# #cp $ubootName/u-boot.img $BINARIES_DIR/uboot.img
-# locDir=`pwd`
-# cd $ubootName
-# #make BL31=$RKBIN/bin/rk35/rk3568_bl31_v1.20.elf spl/u-boot-spl.bin u-boot.dtb $BINARIES_DIR/u-boot.itb
-# #make BL31=$RKBIN/bin/rk35/rk3568_bl31_v1.24.elf spl/u-boot-spl.bin u-boot.dtb $BINARIES_DIR/u-boot.itb
-# #./tools/mkimage -n rk356x -T rksd -d $RKBIN/bin/rk35/rk3568_ddr_1056MHz_v1.06.bin:spl/u-boot-spl.bin $BINARIES_DIR/idbloader.img
-# #cp u-boot.itb $BINARIES_DIR/
-# $ubootName/tools/mkimage -n rk356x -T rksd -d $RKBIN/bin/rk35/rk3568_ddr_1056MHz_v1.08.bin:$ubootName/spl/u-boot-spl.bin $BINARIES_DIR/idbloader.img
-# cd $locDir
-
-
-# # trust img creation
-# cat >$ubootName/trust.ini <<EOF
-# [VERSION]
-# MAJOR=1
-# MINOR=0
-# [BL30_OPTION]
-# SEC=0
-# [BL31_OPTION]
-# SEC=1
-# PATH=$BR2_EXTERNAL_RK3308_PATH/board/RK3566/rk3568_bl31_v1.24.elf
-# ADDR=0x00040000
-# [BL32_OPTION]
-# SEC=1
-# PATH=$BR2_EXTERNAL_RK3308_PATH/board/RK3566/rk3568_bl32_v1.05.bin
-# ADDR=0x08400000
-# [BL33_OPTION]
-# SEC=0
-# [OUTPUT]
-# PATH=$BINARIES_DIR/trust.img
-# EOF
-# $RKBIN/tools/trust_merger --size 1024 1 ${ubootName}/trust.ini
-
-# # first stage boot loader creation
-# $ubootName/tools/mkimage -n rk356x -T rksd -d $boardDir/rk3566_ddr_1056MHz_v1.08.bin $BINARIES_DIR/idbloader.img
-# #cat $boardDir/rk3308_miniloader_emmc_port_support_sd_20190717.bin >> $BINARIES_DIR/idbloader.img
-
-# manually copy known working loaders :
-#cp $BR2_EXTERNAL_RK3308_PATH/board/RK3568/idbloader.img $BR2_EXTERNAL_RK3308_PATH/board/RK3568/uboot.img $BR2_EXTERNAL_RK3308_PATH/board/RK3568/trust.img $BINARIES_DIR/
+# to take rockchip-bsp's boot loaders, rather then generating our own ...
+#cp ~/temp/rockchip-bsp/out/u-boot/idbloader.img ~/temp/rockchip-bsp/out/u-boot/u-boot.itb $BINARIES_DIR/
+$ubootName/tools/mkimage -n rk356x -T rksd -d $RKBIN/bin/rk35/rk3568_ddr_1056MHz_v1.06.bin:$ubootName/spl/u-boot-spl.bin $BINARIES_DIR/idbloader.img
 
 # Generate the uboot script
 $ubootName/tools/mkimage -C none -A arm -T script -d $BR2_EXTERNAL_RK3308_PATH/board/RK3568/boot.cmd $BINARIES_DIR/boot.scr
@@ -80,12 +42,9 @@ echo
 echo 'OF=/dev/sdc; rootDrive=`mount | grep " / " | grep $OF`; if [ -z $rootDrive ]; then sudo umount $OF[123456789]; sudo dd if=output/images/sdcard.img of=$OF; else echo you are trying to overwrite your root drive; fi'
 echo
 echo
-echo images from sdcard :
-echo dd if=/dev/sdc of=/tmp/idbloader.img skip=64 count=16320 bs=512
-echo dd if=/dev/sdc of=/tmp/uboot.img skip=16384 count=8192 bs=512
-echo dd if=/dev/sdc of=/tmp/trust.img skip=24576 count=8192 bs=512
-# echo sudo dd if=/dev/sdc of=/tmp/idbloader.img seek=64 count=16000 bs=1k
-# echo sudo dd if=/dev/sdc of=/tmp/uboot.img seek=16384 count=8000 bs=1k
-# echo sudo dd if=/dev/sdc of=/tmp/trust.img seek=24576 count=8000 bs=1k
-echo
-echo
+# echo images from sdcard - if you want to use a different binary boot loader system from a 3rd party sdcard, do it like this :
+# echo dd if=/dev/sdc of=/tmp/idbloader.img skip=64 count=16320 bs=512
+# echo dd if=/dev/sdc of=/tmp/uboot.img skip=16384 count=8192 bs=512
+# echo dd if=/dev/sdc of=/tmp/trust.img skip=24576 count=8192 bs=512
+# echo
+# echo
