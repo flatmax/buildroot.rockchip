@@ -9,7 +9,7 @@ GTKIOSTREAM_LICENSE = GPLv2
 GTKIOSTREAM_INSTALL_STAGING = YES
 GTKIOSTREAM_INSTALL_TARGET = YES
 GTKIOSTREAM_CONF_OPTS = --disable-octave
-GTKIOSTREAM_DEPENDENCIES = libsamplerate eigen fftw alsa-utils
+GTKIOSTREAM_DEPENDENCIES = libsamplerate eigen fftw-double fftw-single alsa-utils libsox
 
 GTKIOSTREAM_AUTORECONF = YES
 
