@@ -1,0 +1,27 @@
+config BR2_PACKAGE_LIBSOX
+	bool "libsox"
+	select BR2_TOOLCHAIN_BUILDROOT_WCHAR
+	select BR2_PACKAGE_ALSA_LIB_PCM
+	select BR2_PACKAGE_FILE
+	select BR2_PACKAGE_FLAC
+	select BR2_PACKAGE_LAME
+	select BR2_PACKAGE_LIBAO
+	select BR2_PACKAGE_LIBID3TAG
+	select BR2_PACKAGE_LIBMAD
+	select BR2_PACKAGE_LIBPNG
+	select BR2_PACKAGE_LIBSNDFILE
+	select BR2_PACKAGE_LIBVORBIS
+	select BR2_PACKAGE_OPENCORE_AMR
+	select BR2_PACKAGE_OPUSFILE
+	#select BR2_PACKAGE_PULSEAUDIO
+	select BR2_PACKAGE_TWOLAME
+	select BR2_PACKAGE_WAVPACK
+	help
+	  SoX is a cross-platform (Windows, Linux, MacOS X, etc.) command line
+	  utility that can convert various formats of computer audio files
+	  into other formats.
+	  It can also apply various effects to these sound files, and, as an
+	  added bonus, SoX can play and record audio files on most platforms.
+
+	  http://sox.sourceforge.net/
+
