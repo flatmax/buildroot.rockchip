@@ -1,2 +1,2 @@
 overlays=rk3308-uart0
-fdtfile=rockchip/rockpi-s-linux.dtb
+fdtfile=rockchip/rk3308-rock-pi-s.dtb

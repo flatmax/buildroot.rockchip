@@ -17,7 +17,7 @@ Clone buildroot. For example :
 cd yourPath
 git clone git://git.busybox.net/buildroot buildroot
 
-# rock pi S tested with version : git checkout a1c0f17a5386e0eee9199c3ef5b63459fb459dfb
+# rock pi S tested with version : git checkout 58fc4b5085763cf1837cab22e98b0eaa7fefaac5
 ```
 
 Make sure you have requirements :
