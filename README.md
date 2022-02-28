@@ -18,6 +18,7 @@ cd yourPath
 git clone git://git.busybox.net/buildroot buildroot
 
 # rock pi S tested with version : git checkout 58fc4b5085763cf1837cab22e98b0eaa7fefaac5
+# rock pi 3a tested with version : git checkout 73248c03fd04eddad78fea5096cd98b2a2d43e81
 ```
 
 Make sure you have requirements :
