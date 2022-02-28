@@ -45,6 +45,12 @@ source buildroot.rockchip.ext/setup.rockPiE.sh yourPath/buildroot
 source buildroot.rockchip.ext/setup.quartz64.sh yourPath/buildroot
 ```
 
+Make sure you have the buildroot downloads directory present (when you are in the yourPath/buildroot directory execute the following) :
+
+```
+mkdir ../buildroot.dl
+```
+
 # build the system
 
 ## Radxa rock 3 a
