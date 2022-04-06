@@ -1,7 +1,6 @@
 #!/bin/sh
 
 RKBIN=$BINARIES_DIR/rkbin
-RKTOOLS=$RKBIN/tools
 RKCHIP_LOADER=$2
 RKCHIP=$2
 

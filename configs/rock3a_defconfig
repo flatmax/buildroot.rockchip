@@ -9,7 +9,6 @@ BR2_ARM_EABIHF=y
 
 # Rock-Chip repos - mostly for sdcard image generation
 BR2_PACKAGE_RKBIN=y
-BR2_PACKAGE_RKTOOLS=y
 BR2_PACKAGE_RKDEVICE=y
 
 # post build sdcard image generaton
