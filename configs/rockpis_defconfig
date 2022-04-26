@@ -7,8 +7,6 @@ BR2_cortex_a35=y
 
 # Rock-Chip repos - mostly for sdcard image generation
 BR2_PACKAGE_RKBIN=y
-BR2_PACKAGE_RKTOOLS=y
-BR2_PACKAGE_RKDEVICE=y
 
 # post build sdcard image generaton
 BR2_ROOTFS_POST_BUILD_SCRIPT="$(BR2_EXTERNAL)/board/RK3308/post-build.sh"
