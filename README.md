@@ -27,6 +27,13 @@ sudo apt-get install -y build-essential gcc g++ autoconf automake libtool bison 
 sudo apt-get install -y patch texinfo wget git gawk curl lzma bc quilt
 ```
 
+If building in a minimal Docker image, you will also require :
+```
+sudo apt-get install -y cpio unzip rsync python3
+```
+
+***The above instructions apply to Debian-based distros.  Buildroot works on other distros, but installing the above dependencies is beyond the scope of this README; check your distro's package manager documentation.  Additionally the dash shell is required on distros where it is not the default.***
+
 Clone the external buildroot tree :
 ```
 git clone git@github.com:flatmax/buildroot.rockchip.git buildroot.rockchip.ext
