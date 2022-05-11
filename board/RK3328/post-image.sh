@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/dash
 
 RKBIN=$BINARIES_DIR/rkbin
 RKTOOLS=$RKBIN/tools

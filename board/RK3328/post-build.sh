@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/dash
 
 # fix eth0
 cnt=`grep -c eth0 $TARGET_DIR/etc/network/interfaces`
