@@ -1,0 +1,940 @@
+From 9f3486da94c114c6ec96a2a50709b9521120bb27 Mon Sep 17 00:00:00 2001
+From: Matt Flax <flatmax@flatmax.com>
+Date: Wed, 15 Jun 2022 05:12:49 +1000
+Subject: [PATCH 2/2] added old config
+
+Signed-off-by: Matt Flax <flatmax@flatmax.com>
+---
+ .config | 920 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 920 insertions(+)
+ create mode 100644 .config
+
+diff --git a/.config b/.config
+new file mode 100644
+index 0000000000..f6f3a33d2c
+--- /dev/null
++++ b/.config
+@@ -0,0 +1,920 @@
++#
++# Automatically generated file; DO NOT EDIT.
++# U-Boot 2017.09 Configuration
++#
++CONFIG_CREATE_ARCH_SYMLINK=y
++# CONFIG_ARC is not set
++CONFIG_ARM=y
++# CONFIG_M68K is not set
++# CONFIG_MICROBLAZE is not set
++# CONFIG_MIPS is not set
++# CONFIG_NDS32 is not set
++# CONFIG_NIOS2 is not set
++# CONFIG_PPC is not set
++# CONFIG_SANDBOX is not set
++# CONFIG_SH is not set
++# CONFIG_X86 is not set
++# CONFIG_XTENSA is not set
++CONFIG_SYS_ARCH="arm"
++CONFIG_SYS_CPU="armv8"
++CONFIG_SYS_SOC="hi6220"
++CONFIG_SYS_VENDOR="hisilicon"
++CONFIG_SYS_BOARD="hikey"
++CONFIG_SYS_CONFIG_NAME="hikey"
++
++#
++# ARM architecture
++#
++CONFIG_ARM64=y
++# CONFIG_POSITION_INDEPENDENT is not set
++CONFIG_STATIC_RELA=y
++CONFIG_DMA_ADDR_T_64BIT=y
++CONFIG_ARM_ASM_UNIFIED=y
++CONFIG_SYS_ARM_ARCH=8
++CONFIG_SYS_CACHE_SHIFT_6=y
++CONFIG_SYS_CACHELINE_SIZE=64
++# CONFIG_ARM_SMCCC is not set
++# CONFIG_SEMIHOSTING is not set
++# CONFIG_SYS_L2CACHE_OFF is not set
++# CONFIG_ENABLE_ARM_SOC_BOOT0_HOOK is not set
++# CONFIG_ARM_CORTEX_CPU_IS_UP is not set
++CONFIG_ARM64_SUPPORT_AARCH32=y
++# CONFIG_ARCH_AT91 is not set
++# CONFIG_TARGET_EDB93XX is not set
++# CONFIG_TARGET_ASPENITE is not set
++# CONFIG_TARGET_GPLUGD is not set
++# CONFIG_ARCH_DAVINCI is not set
++# CONFIG_KIRKWOOD is not set
++# CONFIG_ARCH_MVEBU is not set
++# CONFIG_TARGET_DEVKIT3250 is not set
++# CONFIG_TARGET_WORK_92105 is not set
++# CONFIG_TARGET_MX25PDK is not set
++# CONFIG_TARGET_ZMX25 is not set
++# CONFIG_TARGET_APF27 is not set
++# CONFIG_TARGET_APX4DEVKIT is not set
++# CONFIG_TARGET_XFI3 is not set
++# CONFIG_TARGET_M28EVK is not set
++# CONFIG_TARGET_MX23EVK is not set
++# CONFIG_TARGET_MX28EVK is not set
++# CONFIG_TARGET_MX23_OLINUXINO is not set
++# CONFIG_TARGET_BG0900 is not set
++# CONFIG_TARGET_SANSA_FUZE_PLUS is not set
++# CONFIG_TARGET_SC_SPS_1 is not set
++# CONFIG_ORION5X is not set
++# CONFIG_TARGET_SPEAR300 is not set
++# CONFIG_TARGET_SPEAR310 is not set
++# CONFIG_TARGET_SPEAR320 is not set
++# CONFIG_TARGET_SPEAR600 is not set
++# CONFIG_TARGET_STV0991 is not set
++# CONFIG_TARGET_X600 is not set
++# CONFIG_TARGET_IMX31_PHYCORE is not set
++# CONFIG_TARGET_IMX31_PHYCORE_EET is not set
++# CONFIG_TARGET_MX31ADS is not set
++# CONFIG_TARGET_MX31PDK is not set
++# CONFIG_TARGET_WOODBURN is not set
++# CONFIG_TARGET_WOODBURN_SD is not set
++# CONFIG_TARGET_FLEA3 is not set
++# CONFIG_TARGET_MX35PDK is not set
++# CONFIG_ARCH_BCM283X is not set
++# CONFIG_TARGET_VEXPRESS_CA15_TC2 is not set
++# CONFIG_TARGET_VEXPRESS_CA5X2 is not set
++# CONFIG_TARGET_VEXPRESS_CA9X4 is not set
++# CONFIG_TARGET_BCM23550_W1D is not set
++# CONFIG_TARGET_BCM28155_AP is not set
++# CONFIG_TARGET_BCMCYGNUS is not set
++# CONFIG_TARGET_BCMNSP is not set
++# CONFIG_TARGET_BCMNS2 is not set
++# CONFIG_ARCH_EXYNOS is not set
++# CONFIG_ARCH_S5PC1XX is not set
++# CONFIG_ARCH_HIGHBANK is not set
++# CONFIG_ARCH_INTEGRATOR is not set
++# CONFIG_ARCH_KEYSTONE is not set
++# CONFIG_ARCH_OMAP2PLUS is not set
++# CONFIG_ARCH_MESON is not set
++# CONFIG_ARCH_MX7ULP is not set
++# CONFIG_ARCH_MX7 is not set
++# CONFIG_ARCH_MX6 is not set
++CONFIG_SPL_LDSCRIPT="arch/arm/cpu/armv8/u-boot-spl.lds"
++# CONFIG_ARCH_MX5 is not set
++# CONFIG_ARCH_RMOBILE is not set
++# CONFIG_TARGET_S32V234EVB is not set
++# CONFIG_ARCH_SNAPDRAGON is not set
++# CONFIG_ARCH_SOCFPGA is not set
++# CONFIG_ARCH_SUNXI is not set
++# CONFIG_TARGET_TS4600 is not set
++# CONFIG_ARCH_VF610 is not set
++# CONFIG_ARCH_ZYNQ is not set
++# CONFIG_ARCH_ZYNQMP is not set
++# CONFIG_TEGRA is not set
++# CONFIG_TARGET_VEXPRESS64_AEMV8A is not set
++# CONFIG_TARGET_VEXPRESS64_BASE_FVP is not set
++# CONFIG_TARGET_VEXPRESS64_BASE_FVP_DRAM is not set
++# CONFIG_TARGET_VEXPRESS64_JUNO is not set
++# CONFIG_TARGET_LS2080A_EMU is not set
++# CONFIG_TARGET_LS2080A_SIMU is not set
++# CONFIG_TARGET_LS2080AQDS is not set
++# CONFIG_TARGET_LS2080ARDB is not set
++# CONFIG_TARGET_LS2081ARDB is not set
++CONFIG_TARGET_HIKEY=y
++# CONFIG_TARGET_POPLAR is not set
++# CONFIG_TARGET_LS1012AQDS is not set
++# CONFIG_TARGET_LS1012ARDB is not set
++# CONFIG_TARGET_LS1012AFRDM is not set
++# CONFIG_TARGET_LS1021AQDS is not set
++# CONFIG_TARGET_LS1021ATWR is not set
++# CONFIG_TARGET_LS1021AIOT is not set
++# CONFIG_TARGET_LS1043AQDS is not set
++# CONFIG_TARGET_LS1043ARDB is not set
++# CONFIG_TARGET_LS1046AQDS is not set
++# CONFIG_TARGET_LS1046ARDB is not set
++# CONFIG_TARGET_H2200 is not set
++# CONFIG_TARGET_ZIPITZ2 is not set
++# CONFIG_TARGET_COLIBRI_PXA270 is not set
++# CONFIG_ARCH_UNIPHIER is not set
++# CONFIG_STM32 is not set
++# CONFIG_ARCH_STI is not set
++# CONFIG_ARCH_ROCKCHIP is not set
++# CONFIG_TARGET_THUNDERX_88XX is not set
++# CONFIG_ARCH_ASPEED is not set
++CONFIG_SYS_MALLOC_F_LEN=0x400
++CONFIG_CONS_INDEX=4
++CONFIG_IDENT_STRING=""
++# CONFIG_VIDEO is not set
++# CONFIG_ARMV8_MULTIENTRY is not set
++# CONFIG_ARMV8_SET_SMPEN is not set
++
++#
++# ARMv8 secure monitor firmware
++#
++# CONFIG_ARMV8_SEC_FIRMWARE_SUPPORT is not set
++# CONFIG_SPL_ARMV8_SEC_FIRMWARE_SUPPORT is not set
++CONFIG_PSCI_RESET=y
++# CONFIG_ARMV8_PSCI is not set
++# CONFIG_CMD_DEKBLOB is not set
++# CONFIG_CMD_HDMIDETECT is not set
++
++#
++# ARM debug
++#
++CONFIG_DEFAULT_DEVICE_TREE=""
++CONFIG_SMBIOS_PRODUCT_NAME="hikey"
++# CONFIG_DEBUG_UART is not set
++# CONFIG_AHCI is not set
++
++#
++# General setup
++#
++CONFIG_LOCALVERSION=""
++CONFIG_LOCALVERSION_AUTO=y
++CONFIG_CC_OPTIMIZE_FOR_SIZE=y
++# CONFIG_DISTRO_DEFAULTS is not set
++CONFIG_SYS_MALLOC_F=y
++CONFIG_SPL_SYS_MALLOC_F_LEN=0x400
++CONFIG_TPL_SYS_MALLOC_F_LEN=0x400
++CONFIG_EXPERT=y
++CONFIG_SYS_MALLOC_CLEAR_ON_INIT=y
++# CONFIG_TOOLS_DEBUG is not set
++CONFIG_PHYS_64BIT=y
++
++#
++# Boot images
++#
++# CONFIG_ANDROID_BOOT_IMAGE is not set
++# CONFIG_FIT is not set
++# CONFIG_OF_BOARD_SETUP is not set
++# CONFIG_OF_SYSTEM_SETUP is not set
++# CONFIG_OF_STDOUT_VIA_ALIAS is not set
++CONFIG_SYS_EXTRA_OPTIONS=""
++CONFIG_ARCH_FIXUP_FDT_MEMORY=y
++
++#
++# API
++#
++# CONFIG_API is not set
++
++#
++# Boot timing
++#
++# CONFIG_BOOTSTAGE is not set
++CONFIG_BOOTSTAGE_USER_COUNT=20
++CONFIG_BOOTSTAGE_RECORD_COUNT=30
++CONFIG_BOOTSTAGE_STASH_ADDR=0
++CONFIG_BOOTSTAGE_STASH_SIZE=0x1000
++# CONFIG_BOOTSTAGE_PRINTF_TIMESTAMP is not set
++
++#
++# Boot media
++#
++# CONFIG_NAND_BOOT is not set
++# CONFIG_ONENAND_BOOT is not set
++# CONFIG_QSPI_BOOT is not set
++# CONFIG_SATA_BOOT is not set
++# CONFIG_SD_BOOT is not set
++# CONFIG_SPI_BOOT is not set
++CONFIG_PASS_DEVICE_SERIAL_BY_FDT=y
++CONFIG_BOOTDELAY=2
++# CONFIG_USE_BOOTARGS is not set
++
++#
++# Console
++#
++# CONFIG_CONSOLE_RECORD is not set
++CONFIG_LOGLEVEL=4
++CONFIG_SPL_LOGLEVEL=4
++# CONFIG_SILENT_CONSOLE is not set
++# CONFIG_PRE_CONSOLE_BUFFER is not set
++# CONFIG_CONSOLE_MUX is not set
++# CONFIG_SYS_CONSOLE_IS_IN_ENV is not set
++# CONFIG_SYS_CONSOLE_OVERWRITE_ROUTINE is not set
++# CONFIG_SYS_CONSOLE_ENV_OVERWRITE is not set
++# CONFIG_SYS_CONSOLE_INFO_QUIET is not set
++# CONFIG_SYS_STDIO_DEREGISTER is not set
++
++#
++# Logging
++#
++# CONFIG_LOG is not set
++# CONFIG_SPL_LOG is not set
++CONFIG_DEFAULT_FDT_FILE=""
++# CONFIG_VERSION_VARIABLE is not set
++CONFIG_DISPLAY_CPUINFO=y
++CONFIG_DISPLAY_BOARDINFO=y
++
++#
++# Start-up hooks
++#
++# CONFIG_ARCH_EARLY_INIT_R is not set
++# CONFIG_ARCH_MISC_INIT is not set
++# CONFIG_BOARD_EARLY_INIT_F is not set
++# CONFIG_ANDROID_AB is not set
++# CONFIG_ANDROID_AVB is not set
++# CONFIG_SKIP_RELOCATE_UBOOT is not set
++
++#
++# Security support
++#
++CONFIG_HASH=y
++
++#
++# SPL / TPL
++#
++
++#
++# Command line interface
++#
++CONFIG_CMDLINE=y
++# CONFIG_HUSH_PARSER is not set
++CONFIG_SYS_PROMPT="=> "
++
++#
++# Autoboot options
++#
++CONFIG_AUTOBOOT=y
++# CONFIG_AUTOBOOT_KEYED is not set
++
++#
++# FASTBOOT
++#
++
++#
++# Commands
++#
++
++#
++# Info commands
++#
++CONFIG_CMD_BDI=y
++# CONFIG_CMD_CONFIG is not set
++CONFIG_CMD_CONSOLE=y
++# CONFIG_CMD_CPU is not set
++# CONFIG_CMD_LICENSE is not set
++
++#
++# Boot commands
++#
++CONFIG_CMD_BOOTD=y
++CONFIG_CMD_BOOTM=y
++# CONFIG_CMD_BOOTZ is not set
++CONFIG_CMD_BOOTI=y
++CONFIG_CMD_BOOTEFI=y
++CONFIG_CMD_BOOTEFI_HELLO_COMPILE=y
++# CONFIG_CMD_BOOTEFI_HELLO is not set
++# CONFIG_CMD_BOOTMENU is not set
++# CONFIG_CMD_DTIMG is not set
++CONFIG_CMD_ELF=y
++CONFIG_CMD_FDT=y
++CONFIG_CMD_GO=y
++CONFIG_CMD_RUN=y
++CONFIG_CMD_IMI=y
++CONFIG_CMD_IMLS=y
++CONFIG_CMD_XIMG=y
++# CONFIG_CMD_POWEROFF is not set
++# CONFIG_CMD_THOR_DOWNLOAD is not set
++# CONFIG_CMD_ZBOOT is not set
++
++#
++# Environment commands
++#
++# CONFIG_CMD_ASKENV is not set
++CONFIG_CMD_EXPORTENV=y
++CONFIG_CMD_IMPORTENV=y
++CONFIG_CMD_EDITENV=y
++# CONFIG_CMD_GREPENV is not set
++CONFIG_CMD_SAVEENV=y
++CONFIG_CMD_ENV_EXISTS=y
++# CONFIG_CMD_ENV_CALLBACK is not set
++# CONFIG_CMD_ENV_FLAGS is not set
++
++#
++# Memory commands
++#
++CONFIG_CMD_CRC32=y
++# CONFIG_CRC32_VERIFY is not set
++# CONFIG_CMD_EEPROM is not set
++# CONFIG_LOOPW is not set
++# CONFIG_CMD_MD5SUM is not set
++# CONFIG_CMD_MEMINFO is not set
++CONFIG_CMD_MEMORY=y
++# CONFIG_CMD_MEMTEST is not set
++# CONFIG_CMD_MX_CYCLIC is not set
++# CONFIG_CMD_SHA1SUM is not set
++# CONFIG_CMD_STRINGS is not set
++
++#
++# Compression commands
++#
++CONFIG_CMD_LZMADEC=y
++CONFIG_CMD_UNZIP=y
++# CONFIG_CMD_ZIP is not set
++
++#
++# Device access commands
++#
++# CONFIG_CMD_ARMFLASH is not set
++# CONFIG_CMD_CLK is not set
++# CONFIG_CMD_DEMO is not set
++# CONFIG_CMD_DFU is not set
++CONFIG_CMD_DM=y
++# CONFIG_CMD_FDC is not set
++CONFIG_CMD_FLASH=y
++CONFIG_CMD_FPGA=y
++# CONFIG_CMD_FPGA_LOADBP is not set
++# CONFIG_CMD_FPGA_LOADFS is not set
++# CONFIG_CMD_FPGA_LOADMK is not set
++# CONFIG_CMD_FPGA_LOADP is not set
++# CONFIG_CMD_FPGAD is not set
++# CONFIG_CMD_FUSE is not set
++# CONFIG_CMD_GPIO is not set
++# CONFIG_CMD_GPT is not set
++# CONFIG_RANDOM_UUID is not set
++# CONFIG_CMD_IDE is not set
++# CONFIG_CMD_IO is not set
++# CONFIG_CMD_IOTRACE is not set
++# CONFIG_CMD_I2C is not set
++CONFIG_CMD_LOADB=y
++CONFIG_CMD_LOADS=y
++# CONFIG_CMD_MMC is not set
++# CONFIG_CMD_NAND is not set
++# CONFIG_CMD_MMC_SPI is not set
++# CONFIG_CMD_ONENAND is not set
++# CONFIG_CMD_PART is not set
++# CONFIG_CMD_PCI is not set
++# CONFIG_CMD_PCMCIA is not set
++# CONFIG_CMD_READ is not set
++# CONFIG_CMD_SATA is not set
++# CONFIG_CMD_SAVES is not set
++# CONFIG_CMD_SDRAM is not set
++# CONFIG_CMD_SF is not set
++# CONFIG_CMD_SF_TEST is not set
++# CONFIG_CMD_SPI is not set
++# CONFIG_CMD_TSI148 is not set
++# CONFIG_CMD_UNIVERSE is not set
++# CONFIG_CMD_USB is not set
++# CONFIG_CMD_USB_SDP is not set
++# CONFIG_CMD_USB_MASS_STORAGE is not set
++
++#
++# Shell scripting commands
++#
++CONFIG_CMD_ECHO=y
++CONFIG_CMD_ITEST=y
++CONFIG_CMD_SOURCE=y
++CONFIG_CMD_SETEXPR=y
++
++#
++# Network commands
++#
++CONFIG_CMD_NET=y
++# CONFIG_CMD_TFTPPUT is not set
++# CONFIG_CMD_TFTPSRV is not set
++# CONFIG_CMD_RARP is not set
++# CONFIG_CMD_DHCP is not set
++# CONFIG_CMD_PXE is not set
++CONFIG_CMD_NFS=y
++# CONFIG_CMD_MII is not set
++# CONFIG_CMD_PING is not set
++# CONFIG_CMD_CDP is not set
++# CONFIG_CMD_SNTP is not set
++# CONFIG_CMD_DNS is not set
++# CONFIG_CMD_LINK_LOCAL is not set
++# CONFIG_CMD_ETHSW is not set
++# CONFIG_CMD_MEMTESTER is not set
++# CONFIG_CMD_DDR_TEST_TOOL is not set
++
++#
++# Misc commands
++#
++# CONFIG_CMD_BSP is not set
++# CONFIG_CMD_CACHE is not set
++# CONFIG_CMD_DISPLAY is not set
++# CONFIG_CMD_LED is not set
++# CONFIG_CMD_DATE is not set
++# CONFIG_CMD_TIME is not set
++# CONFIG_CMD_GETTIME is not set
++CONFIG_CMD_MISC=y
++# CONFIG_CMD_TIMER is not set
++# CONFIG_CMD_QFW is not set
++# CONFIG_CMD_TERMINAL is not set
++# CONFIG_CMD_UUID is not set
++
++#
++# Power commands
++#
++# CONFIG_CMD_CHARGE_DISPLAY is not set
++
++#
++# Security commands
++#
++# CONFIG_CMD_AES is not set
++# CONFIG_CMD_BLOB is not set
++# CONFIG_CMD_HASH is not set
++
++#
++# Firmware commands
++#
++
++#
++# Filesystem commands
++#
++# CONFIG_CMD_EXT2 is not set
++# CONFIG_CMD_EXT4 is not set
++# CONFIG_CMD_FAT is not set
++# CONFIG_CMD_FS_GENERIC is not set
++# CONFIG_CMD_FS_UUID is not set
++# CONFIG_CMD_JFFS2 is not set
++# CONFIG_CMD_MTDPARTS is not set
++# CONFIG_CMD_REISER is not set
++# CONFIG_CMD_SCSI is not set
++# CONFIG_CMD_ZFS is not set
++
++#
++# Debug commands
++#
++# CONFIG_CMD_BEDBUG is not set
++# CONFIG_CMD_DIAG is not set
++# CONFIG_CMD_KGDB is not set
++# CONFIG_CMD_LOG is not set
++# CONFIG_CMD_TRACE is not set
++# CONFIG_CMD_UBI is not set
++
++#
++# Partition Types
++#
++CONFIG_PARTITIONS=y
++# CONFIG_MAC_PARTITION is not set
++# CONFIG_DOS_PARTITION is not set
++# CONFIG_ISO_PARTITION is not set
++# CONFIG_AMIGA_PARTITION is not set
++# CONFIG_EFI_PARTITION is not set
++# CONFIG_PARTITION_UUIDS is not set
++# CONFIG_RKPARM_PARTITION is not set
++# CONFIG_SPL_ROCKCHIP_PARTITION is not set
++CONFIG_SUPPORT_OF_CONTROL=y
++CONFIG_DTC=y
++
++#
++# Device Tree Control
++#
++CONFIG_OF_CONTROL=y
++# CONFIG_OF_BOARD_FIXUP is not set
++# CONFIG_OF_LIVE is not set
++CONFIG_OF_SEPARATE=y
++# CONFIG_OF_EMBED is not set
++# CONFIG_OF_BOARD is not set
++# CONFIG_MULTI_DTB_FIT is not set
++CONFIG_OF_SPL_REMOVE_PROPS="pinctrl-0 pinctrl-names clocks clock-names interrupt-parent"
++CONFIG_MKIMAGE_DTC_PATH="dtc"
++
++#
++# Environment
++#
++CONFIG_ENV_IS_NOWHERE=y
++# CONFIG_ENV_IS_IN_EEPROM is not set
++# CONFIG_ENV_IS_IN_FAT is not set
++# CONFIG_ENV_IS_IN_FLASH is not set
++# CONFIG_ENV_IS_IN_MMC is not set
++# CONFIG_ENV_IS_IN_NAND is not set
++# CONFIG_ENV_IS_IN_NVRAM is not set
++# CONFIG_ENV_IS_IN_ONENAND is not set
++# CONFIG_ENV_IS_IN_REMOTE is not set
++# CONFIG_ENV_IS_IN_SPI_FLASH is not set
++# CONFIG_ENV_IS_IN_UBI is not set
++# CONFIG_ENV_AES is not set
++CONFIG_NET=y
++# CONFIG_NET_RANDOM_ETHADDR is not set
++# CONFIG_NETCONSOLE is not set
++CONFIG_NET_TFTP_VARS=y
++CONFIG_BOOTP_PXE_CLIENTARCH=0x16
++CONFIG_BOOTP_VCI_STRING="U-Boot.armv8"
++
++#
++# Device Drivers
++#
++
++#
++# Generic Driver Options
++#
++CONFIG_DM=y
++CONFIG_DM_WARN=y
++# CONFIG_DM_DEBUG is not set
++CONFIG_DM_DEVICE_REMOVE=y
++CONFIG_DM_STDIO=y
++CONFIG_DM_SEQ_ALIAS=y
++# CONFIG_SPL_DM_SEQ_ALIAS is not set
++# CONFIG_REGMAP is not set
++# CONFIG_DEVRES is not set
++CONFIG_SIMPLE_BUS=y
++CONFIG_OF_TRANSLATE=y
++CONFIG_DM_DEV_READ_INLINE=y
++# CONFIG_ADC is not set
++# CONFIG_ADC_EXYNOS is not set
++# CONFIG_ADC_SANDBOX is not set
++# CONFIG_SARADC_ROCKCHIP is not set
++# CONFIG_SATA is not set
++
++#
++# SATA/SCSI device support
++#
++# CONFIG_BLK is not set
++# CONFIG_BLOCK_CACHE is not set
++# CONFIG_IDE is not set
++
++#
++# Boot count support
++#
++# CONFIG_BOOTCOUNT is not set
++
++#
++# Clock
++#
++# CONFIG_CLK is not set
++# CONFIG_CPU is not set
++
++#
++# Hardware crypto devices
++#
++# CONFIG_FSL_CAAM is not set
++# CONFIG_SYS_FSL_SEC_BE is not set
++# CONFIG_SYS_FSL_SEC_LE is not set
++# CONFIG_CRYPTO_ROCKCHIP is not set
++
++#
++# Demo for driver model
++#
++# CONFIG_DM_DEMO is not set
++
++#
++# DFU support
++#
++
++#
++# DMA Support
++#
++# CONFIG_DMA is not set
++# CONFIG_TI_EDMA3 is not set
++
++#
++# FPGA support
++#
++# CONFIG_FPGA_ALTERA is not set
++# CONFIG_FPGA_SOCFPGA is not set
++# CONFIG_FPGA_XILINX is not set
++
++#
++# GPIO Support
++#
++CONFIG_DM_GPIO=y
++# CONFIG_ALTERA_PIO is not set
++# CONFIG_DWAPB_GPIO is not set
++# CONFIG_AT91_GPIO is not set
++# CONFIG_ATMEL_PIO4 is not set
++# CONFIG_INTEL_BROADWELL_GPIO is not set
++# CONFIG_INTEL_ICH6_GPIO is not set
++# CONFIG_IMX_RGPIO2P is not set
++# CONFIG_LPC32XX_GPIO is not set
++# CONFIG_MSM_GPIO is not set
++# CONFIG_CMD_PCA953X is not set
++# CONFIG_ROCKCHIP_GPIO is not set
++# CONFIG_CMD_TCA642X is not set
++# CONFIG_TEGRA_GPIO is not set
++# CONFIG_TEGRA186_GPIO is not set
++# CONFIG_VYBRID_GPIO is not set
++# CONFIG_DM_74X164 is not set
++# CONFIG_DM_PCA953X is not set
++# CONFIG_MPC85XX_GPIO is not set
++
++#
++# I2C support
++#
++# CONFIG_DM_I2C is not set
++# CONFIG_DM_I2C_COMPAT is not set
++# CONFIG_SYS_I2C_DW is not set
++# CONFIG_SYS_I2C_IMX_LPI2C is not set
++# CONFIG_DM_KEYBOARD is not set
++# CONFIG_DM_KEY is not set
++# CONFIG_DM_RC is not set
++# CONFIG_CROS_EC_KEYB is not set
++
++#
++# LED Support
++#
++# CONFIG_LED is not set
++# CONFIG_LED_STATUS is not set
++
++#
++# Mailbox Controller Support
++#
++# CONFIG_DM_MAILBOX is not set
++
++#
++# Memory Controller drivers
++#
++
++#
++# Multifunction device drivers
++#
++# CONFIG_MISC is not set
++# CONFIG_CROS_EC is not set
++# CONFIG_DS4510 is not set
++# CONFIG_FSL_SEC_MON is not set
++# CONFIG_MXC_OCOTP is not set
++# CONFIG_NUVOTON_NCT6102D is not set
++# CONFIG_PWRSEQ is not set
++# CONFIG_PCA9551_LED is not set
++# CONFIG_WINBOND_W83627 is not set
++
++#
++# MMC Host controller Support
++#
++CONFIG_MMC=y
++# CONFIG_DM_MMC is not set
++# CONFIG_SPL_MMC_TINY is not set
++# CONFIG_MMC_DW is not set
++# CONFIG_MMC_MXC is not set
++# CONFIG_MMC_MXS is not set
++# CONFIG_MMC_PCI is not set
++# CONFIG_MMC_OMAP_HS is not set
++# CONFIG_MMC_SDHCI is not set
++
++#
++# MTD Support
++#
++# CONFIG_MTD is not set
++# CONFIG_MTD_NOR_FLASH is not set
++# CONFIG_NAND is not set
++
++#
++# SPI Flash Support
++#
++# CONFIG_SPI_FLASH is not set
++
++#
++# UBI support
++#
++# CONFIG_MTD_UBI is not set
++# CONFIG_BITBANGMII is not set
++# CONFIG_MV88E6352_SWITCH is not set
++# CONFIG_PHYLIB is not set
++# CONFIG_DM_ETH is not set
++# CONFIG_NETDEVICES is not set
++# CONFIG_PCI is not set
++
++#
++# PHY Subsystem
++#
++# CONFIG_PHY is not set
++# CONFIG_SPL_PHY is not set
++# CONFIG_MVEBU_COMPHY_SUPPORT is not set
++
++#
++# Pin controllers
++#
++# CONFIG_PINCTRL is not set
++
++#
++# Power
++#
++
++#
++# Power Domain Support
++#
++# CONFIG_POWER_DOMAIN is not set
++# CONFIG_DM_FUEL_GAUGE is not set
++
++#
++# IO Domain Support
++#
++# CONFIG_IO_DOMAIN is not set
++# CONFIG_DM_PMIC is not set
++# CONFIG_PMIC_AS3722 is not set
++# CONFIG_POWER_MC34VR500 is not set
++# CONFIG_DM_REGULATOR is not set
++# CONFIG_DM_DVFS is not set
++# CONFIG_DM_CHARGE_DISPLAY is not set
++# CONFIG_DM_PWM is not set
++# CONFIG_PWM_SANDBOX is not set
++# CONFIG_RAM is not set
++# CONFIG_DM_RAMDISK is not set
++# CONFIG_ROCKCHIP_DMC is not set
++
++#
++# Remote Processor drivers
++#
++
++#
++# Reset Controller Support
++#
++# CONFIG_DM_RESET is not set
++
++#
++# Real Time Clock
++#
++# CONFIG_DM_RTC is not set
++# CONFIG_SCSI is not set
++
++#
++# Serial drivers
++#
++CONFIG_BAUDRATE=115200
++CONFIG_REQUIRE_SERIAL_CONSOLE=y
++CONFIG_SERIAL_PRESENT=y
++CONFIG_SPL_SERIAL_PRESENT=y
++CONFIG_DM_SERIAL=y
++# CONFIG_SERIAL_RX_BUFFER is not set
++# CONFIG_SPL_DM_SERIAL is not set
++# CONFIG_TPL_DM_SERIAL is not set
++# CONFIG_DEBUG_UART_SKIP_INIT is not set
++# CONFIG_ALTERA_JTAG_UART is not set
++# CONFIG_ALTERA_UART is not set
++# CONFIG_ATMEL_USART is not set
++# CONFIG_FSL_LPUART is not set
++# CONFIG_MVEBU_A3700_UART is not set
++# CONFIG_SYS_NS16550 is not set
++# CONFIG_MSM_SERIAL is not set
++# CONFIG_PXA_SERIAL is not set
++
++#
++# Sound support
++#
++# CONFIG_SOUND is not set
++
++#
++# SPI Support
++#
++# CONFIG_DM_SPI is not set
++# CONFIG_SOFT_SPI is not set
++# CONFIG_FSL_ESPI is not set
++# CONFIG_FSL_QSPI is not set
++# CONFIG_TI_QSPI is not set
++# CONFIG_OMAP3_SPI is not set
++
++#
++# SPMI support
++#
++# CONFIG_SPMI is not set
++
++#
++# System reset device drivers
++#
++# CONFIG_SYSRESET is not set
++# CONFIG_SYSRESET_SYSCON is not set
++# CONFIG_SYSRESET_WATCHDOG is not set
++# CONFIG_DM_THERMAL is not set
++
++#
++# Timer Support
++#
++# CONFIG_TIMER is not set
++
++#
++# TPM support
++#
++# CONFIG_USB is not set
++
++#
++# Graphics support
++#
++# CONFIG_DM_VIDEO is not set
++# CONFIG_SYS_WHITE_ON_BLACK is not set
++
++#
++# TrueType Fonts
++#
++# CONFIG_VIDEO_VESA is not set
++# CONFIG_VIDEO_LCD_ANX9804 is not set
++# CONFIG_VIDEO_LCD_SSD2828 is not set
++# CONFIG_VIDEO_MVEBU is not set
++# CONFIG_DISPLAY is not set
++# CONFIG_VIDEO_TEGRA20 is not set
++# CONFIG_VIDEO_BRIDGE is not set
++# CONFIG_LCD is not set
++
++#
++# Watchdog Timer Support
++#
++# CONFIG_BCM2835_WDT is not set
++# CONFIG_ULP_WATCHDOG is not set
++# CONFIG_WDT is not set
++# CONFIG_PHYS_TO_BUS is not set
++
++#
++# File systems
++#
++# CONFIG_FS_CBFS is not set
++# CONFIG_FS_FAT is not set
++# CONFIG_FS_JFFS2 is not set
++# CONFIG_FS_CRAMFS is not set
++# CONFIG_YAFFS2 is not set
++
++#
++# Library routines
++#
++# CONFIG_BCH is not set
++# CONFIG_CC_OPTIMIZE_LIBS_FOR_SPEED is not set
++CONFIG_SYS_HZ=1000
++CONFIG_SYS_STACK_SIZE=0x200000
++# CONFIG_USE_TINY_PRINTF is not set
++# CONFIG_PANIC_HANG is not set
++CONFIG_REGEX=y
++# CONFIG_LIB_RAND is not set
++# CONFIG_SPL_TINY_MEMSET is not set
++# CONFIG_TPL_TINY_MEMSET is not set
++CONFIG_SYSMEM=y
++# CONFIG_CMD_DHRYSTONE is not set
++
++#
++# Security support
++#
++# CONFIG_AES is not set
++# CONFIG_RSA is not set
++# CONFIG_TPM is not set
++
++#
++# Hashing Support
++#
++# CONFIG_SHA1 is not set
++# CONFIG_SHA256 is not set
++# CONFIG_SHA_HW_ACCEL is not set
++
++#
++# Compression Support
++#
++# CONFIG_LZ4 is not set
++CONFIG_LZMA=y
++# CONFIG_LZO is not set
++# CONFIG_SPL_LZO is not set
++# CONFIG_SPL_GZIP is not set
++# CONFIG_ERRNO_STR is not set
++CONFIG_OF_LIBFDT=y
++# CONFIG_OF_LIBFDT_OVERLAY is not set
++# CONFIG_SPL_OF_LIBFDT is not set
++# CONFIG_TPL_OF_LIBFDT is not set
++# CONFIG_FDT_FIXUP_PARTITIONS is not set
++
++#
++# System tables
++#
++CONFIG_GENERATE_SMBIOS_TABLE=y
++CONFIG_SMBIOS_MANUFACTURER="hisilicon"
++CONFIG_EFI_LOADER=y
++# CONFIG_EFI_LOADER_BOUNCE_BUFFER is not set
++# CONFIG_AVB_LIBAVB is not set
++# CONFIG_SPL_AVB_LIBAVB is not set
++# CONFIG_TPL_AVB_LIBAVB is not set
++# CONFIG_AVB_LIBAVB_AB is not set
++# CONFIG_SPL_AVB_LIBAVB_AB is not set
++# CONFIG_TPL_AVB_LIBAVB_AB is not set
++# CONFIG_AVB_LIBAVB_ATX is not set
++# CONFIG_SPL_AVB_LIBAVB_ATX is not set
++# CONFIG_TPL_AVB_LIBAVB_ATX is not set
++# CONFIG_AVB_LIBAVB_USER is not set
++# CONFIG_SPL_AVB_LIBAVB_USER is not set
++# CONFIG_TPL_AVB_LIBAVB_USER is not set
++# CONFIG_RK_AVB_LIBAVB_USER is not set
++# CONFIG_SPL_RK_AVB_LIBAVB_USER is not set
++# CONFIG_TPL_RK_AVB_LIBAVB_USER is not set
++# CONFIG_OPTEE_CLIENT is not set
++# CONFIG_OPTEE_V1 is not set
++# CONFIG_OPTEE_V2 is not set
++# CONFIG_OPTEE_ALWAYS_USE_SECURITY_PARTITION is not set
++# CONFIG_UNIT_TEST is not set
+-- 
+2.34.1
+

@@ -1,0 +1,203 @@
+From 504017965511d3a4702cbedac6edcdad1d92cc74 Mon Sep 17 00:00:00 2001
+From: Matt Flax <flatmax@flatmax.com>
+Date: Wed, 15 Jun 2022 04:46:10 +1000
+Subject: [PATCH] force execution of python2 rather then default python
+
+Signed-off-by: Matt Flax <flatmax@flatmax.com>
+---
+ Makefile                                 | 2 +-
+ board/sandbox/README.sandbox             | 2 +-
+ lib/libfdt/test_libfdt.py                | 2 +-
+ lib/optee_clientApi/tabinary_to_cfile.py | 2 +-
+ scripts/dtc/pylibfdt/setup.py            | 2 +-
+ scripts/mailmapper                       | 2 +-
+ test/py/test.py                          | 2 +-
+ test/py/tests/test_shell_basics.py       | 4 ++--
+ tools/buildman/buildman.py               | 2 +-
+ tools/dtoc/dtb_platdata.py               | 2 +-
+ tools/dtoc/dtoc.py                       | 2 +-
+ tools/dtoc/fdt.py                        | 2 +-
+ tools/dtoc/fdt_util.py                   | 2 +-
+ tools/microcode-tool.py                  | 2 +-
+ tools/patman/patman.py                   | 2 +-
+ tools/rkmux.py                           | 2 +-
+ 16 files changed, 17 insertions(+), 17 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index efedc288d4..2416ce313f 100644
+--- a/Makefile
++++ b/Makefile
+@@ -348,7 +348,7 @@ OBJCOPY		= $(CROSS_COMPILE)objcopy
+ OBJDUMP		= $(CROSS_COMPILE)objdump
+ AWK		= awk
+ PERL		= perl
+-PYTHON		?= python
++PYTHON		?= python2
+ DTC		?= $(objtree)/scripts/dtc/dtc
+ CHECK		= sparse
+ 
+diff --git a/board/sandbox/README.sandbox b/board/sandbox/README.sandbox
+index 947241e3eb..ec0f3aae63 100644
+--- a/board/sandbox/README.sandbox
++++ b/board/sandbox/README.sandbox
+@@ -340,7 +340,7 @@ $> sudo mkfs.ext4 -L ROOT -v ${lodev}p2
+ 
+ or utilize the device described in test/py/make_test_disk.py:
+ 
+-   #!/usr/bin/python
++   #!/usr/bin/python2
+    import make_test_disk
+    make_test_disk.makeDisk()
+ 
+diff --git a/lib/libfdt/test_libfdt.py b/lib/libfdt/test_libfdt.py
+index 14d0da4fb3..1c575b9391 100644
+--- a/lib/libfdt/test_libfdt.py
++++ b/lib/libfdt/test_libfdt.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python
++#!/usr/bin/python2
+ 
+ import os
+ import sys
+diff --git a/lib/optee_clientApi/tabinary_to_cfile.py b/lib/optee_clientApi/tabinary_to_cfile.py
+index 1574c271b6..adb34867cb 100755
+--- a/lib/optee_clientApi/tabinary_to_cfile.py
++++ b/lib/optee_clientApi/tabinary_to_cfile.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python2
+ #
+ # Copyright 2017, Rockchip Electronics Co., Ltd
+ # hisping lin, <hisping.lin@rock-chips.com>
+diff --git a/scripts/dtc/pylibfdt/setup.py b/scripts/dtc/pylibfdt/setup.py
+index daf1089425..4f7cf042bf 100755
+--- a/scripts/dtc/pylibfdt/setup.py
++++ b/scripts/dtc/pylibfdt/setup.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python2
+ 
+ """
+ setup.py file for SWIG libfdt
+diff --git a/scripts/mailmapper b/scripts/mailmapper
+index 922ada6f5f..78b23d152d 100755
+--- a/scripts/mailmapper
++++ b/scripts/mailmapper
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python2
+ #
+ # Copyright (C) 2014, Masahiro Yamada <yamada.m@jp.panasonic.com>
+ #
+diff --git a/test/py/test.py b/test/py/test.py
+index 74e560a4d3..4695079ef7 100755
+--- a/test/py/test.py
++++ b/test/py/test.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python2
+ 
+ # Copyright (c) 2015 Stephen Warren
+ # Copyright (c) 2015-2016, NVIDIA CORPORATION. All rights reserved.
+diff --git a/test/py/tests/test_shell_basics.py b/test/py/tests/test_shell_basics.py
+index 0024d5f7f6..d7a8d2d631 100644
+--- a/test/py/tests/test_shell_basics.py
++++ b/test/py/tests/test_shell_basics.py
+@@ -35,7 +35,7 @@ def test_shell_semicolon_three(u_boot_console):
+ def test_shell_run(u_boot_console):
+     """Test the "run" shell command."""
+ 
+-    u_boot_console.run_command('setenv foo "setenv monty 1; setenv python 2"')
++    u_boot_console.run_command('setenv foo "setenv monty 1; setenv python2 2"')
+     u_boot_console.run_command('run foo')
+     response = u_boot_console.run_command('echo $monty')
+     assert response.strip() == '1'
+@@ -43,4 +43,4 @@ def test_shell_run(u_boot_console):
+     assert response.strip() == '2'
+     u_boot_console.run_command('setenv foo')
+     u_boot_console.run_command('setenv monty')
+-    u_boot_console.run_command('setenv python')
++    u_boot_console.run_command('setenv python2')
+diff --git a/tools/buildman/buildman.py b/tools/buildman/buildman.py
+index 607429df7b..f5c4b047d0 100755
+--- a/tools/buildman/buildman.py
++++ b/tools/buildman/buildman.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python2
+ #
+ # Copyright (c) 2012 The Chromium OS Authors.
+ #
+diff --git a/tools/dtoc/dtb_platdata.py b/tools/dtoc/dtb_platdata.py
+index c5767e5fb4..882f5c26b3 100644
+--- a/tools/dtoc/dtb_platdata.py
++++ b/tools/dtoc/dtb_platdata.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python
++#!/usr/bin/python2
+ #
+ # Copyright (C) 2017 Google, Inc
+ # Written by Simon Glass <sjg@chromium.org>
+diff --git a/tools/dtoc/dtoc.py b/tools/dtoc/dtoc.py
+index ce7bc054e5..8a7fac4536 100755
+--- a/tools/dtoc/dtoc.py
++++ b/tools/dtoc/dtoc.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python
++#!/usr/bin/python2
+ #
+ # Copyright (C) 2016 Google, Inc
+ # Written by Simon Glass <sjg@chromium.org>
+diff --git a/tools/dtoc/fdt.py b/tools/dtoc/fdt.py
+index dbc338653b..ae63c1470e 100644
+--- a/tools/dtoc/fdt.py
++++ b/tools/dtoc/fdt.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python
++#!/usr/bin/python2
+ #
+ # Copyright (C) 2016 Google, Inc
+ # Written by Simon Glass <sjg@chromium.org>
+diff --git a/tools/dtoc/fdt_util.py b/tools/dtoc/fdt_util.py
+index 338d47a5e1..9aff871947 100644
+--- a/tools/dtoc/fdt_util.py
++++ b/tools/dtoc/fdt_util.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python
++#!/usr/bin/python2
+ #
+ # Copyright (C) 2016 Google, Inc
+ # Written by Simon Glass <sjg@chromium.org>
+diff --git a/tools/microcode-tool.py b/tools/microcode-tool.py
+index 790c27e459..069d961d80 100755
+--- a/tools/microcode-tool.py
++++ b/tools/microcode-tool.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python2
+ #
+ # Copyright (c) 2014 Google, Inc
+ #
+diff --git a/tools/patman/patman.py b/tools/patman/patman.py
+index 4b3bc78745..7647440be5 100755
+--- a/tools/patman/patman.py
++++ b/tools/patman/patman.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python2
+ #
+ # Copyright (c) 2011 The Chromium OS Authors.
+ #
+diff --git a/tools/rkmux.py b/tools/rkmux.py
+index 39173359ca..80732d4381 100755
+--- a/tools/rkmux.py
++++ b/tools/rkmux.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python
++#!/usr/bin/python2
+ 
+ # Script to create enums from datasheet register tables
+ #
+-- 
+2.34.1
+
