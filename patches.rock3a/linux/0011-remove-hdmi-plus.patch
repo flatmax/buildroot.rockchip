@@ -1,0 +1,45 @@
+Index: linux-a4e78ea509f7c32206d84301e674b9718583ace1/arch/arm64/boot/dts/rockchip/rk3568-rock-3-a.dts
+===================================================================
+--- linux-a4e78ea509f7c32206d84301e674b9718583ace1.orig/arch/arm64/boot/dts/rockchip/rk3568-rock-3-a.dts
++++ linux-a4e78ea509f7c32206d84301e674b9718583ace1/arch/arm64/boot/dts/rockchip/rk3568-rock-3-a.dts
+@@ -48,7 +48,7 @@
+ 		poll-interval = <100>;
+ 	};
+ 
+-	audiopwmout_diff: audiopwmout-diff {
++/*	audiopwmout_diff: audiopwmout-diff {
+ 		status = "disabled";
+ 		compatible = "simple-audio-card";
+ 		simple-audio-card,format = "i2s";
+@@ -63,7 +63,7 @@
+ 			sound-dai = <&dig_acodec>;
+ 		};
+ 	};
+-
++*/
+ 	hdmi_sound: hdmi-sound {
+ 		compatible = "simple-audio-card";
+ 		simple-audio-card,format = "i2s";
+@@ -105,11 +105,6 @@
+ 		status = "okay";
+ 	};
+ 
+-
+-	i2s3_2ch {
+-		status = "okay";
+-	};
+-
+ 	pdmics: dummy-codec {
+ 		status = "disabled";
+ 		compatible = "rockchip,dummy-codec";
+@@ -369,6 +364,10 @@
+ };
+ 
+ &hdmi_sound {
++	status = "disabled";
++};
++
++&i2s3_2ch {
+ 	status = "okay";
+ };
+ 
