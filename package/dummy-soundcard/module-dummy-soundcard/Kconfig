@@ -1,0 +1,5 @@
+config SND_SOC_DUMMY_SOUNDCARD
+        tristate "RK33xx platform machine driver example for a dummy soundcard"
+        default n
+        help
+          ALSA machine driver for a dummy soundcard

@@ -1,0 +1,63 @@
+/dts-v1/;
+/plugin/;
+
+// Example dts overlay for the rk33xx
+
+/ {
+	compatible = "rockchip,rk3399";
+
+	fragment@0 {
+		target-path = "/";
+		__overlay__ {
+			spdif {
+				status = "disabled";
+			};
+
+			hdmi-sound {
+				status = "disabled";
+			};
+		};
+	};
+
+	fragment@1 {
+			target = <&i2s0>;
+			__overlay__ {
+				rockchip,playback-channels = <2>;
+				rockchip,capture-channels = <2>;
+				status = "okay";
+			};
+	};
+
+	fragment@2 {
+		target-path = "/";
+		__overlay__ {
+			sound {
+				status = "okay";
+				compatible = "simple-audio-card";
+				simple-audio-card,name = "test";
+				simple-audio-card,format="i2s";
+
+				simple-audio-card,bitclock-master = <&cpu_dai>;
+				simple-audio-card,frame-master = <&cpu_dai>;
+				simple-audio-card,mclk-fs = <256>;
+
+				cpu_dai: simple-audio-card,cpu {
+					sound-dai = <&i2s0>;
+				};
+
+				codec_dai: simple-audio-card,codec {
+					sound-dai = <&i2s0_out>;
+				};
+
+			};
+
+			i2s0_out: i2s0-out {
+	      #sound-dai-cells = <0>;
+	      compatible = "flatmax,bare";
+	      status = "okay";
+      };
+		};
+	}; // fragment
+
+
+};
