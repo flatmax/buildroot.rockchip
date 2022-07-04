@@ -19,6 +19,7 @@ git clone git://git.busybox.net/buildroot buildroot
 
 # rock pi S tested with version : git checkout 2022.02.1
 # rock pi 3a tested with version : git checkout 73248c03fd04eddad78fea5096cd98b2a2d43e81
+# rock cm3 tested with version : git checkout 2022.05
 ```
 
 Make sure you have requirements :
@@ -46,6 +47,8 @@ git clone git@github.com:flatmax/buildroot.rockchip.git buildroot.rockchip.ext
 source buildroot.rockchip.ext/setup.rockPiS.sh yourPath/buildroot
 # for the Radxa rock 3 a board
 source buildroot.rockchip.ext/setup.rock3a.sh yourPath/buildroot
+# for the Radxa rock cm3 io board
+source buildroot.rockchip.ext/setup.cm3.sh yourPath/buildroot
 # For the RockPi E (rk3328 based board) [needs more work]
 source buildroot.rockchip.ext/setup.rockPiE.sh yourPath/buildroot
 # For the Pine64 Quartz64 (rk3566 based board) [currently not working]
@@ -65,7 +68,7 @@ This board requires rkbin installed before uboot compiles
 ```
 make rkbin
 ```
-# Now build buildroot as per usual
+# Now build buildroot as per usual for all boards
 ```
 make
 ```
@@ -84,12 +87,12 @@ OF=/dev/sdf; rootDrive=`mount | grep " / " | grep $OF`; if [ -z $rootDrive ]; th
 
 Connect to the console debug uart with a serial cable. Or, add the openssh-server pacakge to the buildsystem, then ssh in as user root, no pass.
 
-# Rock 3 a
+# Rock 3 a and Rock cm3
 Uboot commands are still manual at this point. Cut and paste the contents of boot.cmd into console when uboot comes up to get linux to boot.
 
 # TODO
 ## for the rk3308 board
 Try to find suitable rock-chip boot binaries on github. rk3308_ddr_589MHz_uart0_m0_v1.26.bin can't be found in rkbin.
 Shift uboot and the kernel to mainline Linux.
-## for the rk3568 board - rock 3 a
-work out why boot.cmd is not working with uboot - fix that.
+## for the rk3568 board - rock 3 a and rock cm3
+work out why boot.cmd is not working with uboot - fix that. https://forum.radxa.com/t/autorun-a-uboot-script/10461
