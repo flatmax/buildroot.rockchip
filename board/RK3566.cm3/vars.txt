@@ -1,0 +1,2 @@
+overlays=dummy-soundcard
+fdtfile=rockchip/rk3566-rock-cm3-e23-io.dtb
