@@ -1,2 +1,2 @@
-overlays=dummy-soundcard
-fdtfile=rockchip/rk3566-rock-cm3-e23-io.dtb
+overlays=rk3568-fiq-debugger-uart2m0
+fdtfile=rockchip/rk3566-radxa-cm3-io.dtb

@@ -3,10 +3,9 @@ setenv load_addr $ramdisk_addr_r
 setenv devnum 1
 load mmc ${devnum} ${load_addr} vars.txt
 env import -t ${load_addr} ${filesize}
-#setenv fdtfile "rk3566-rock-cm3-e23-io.dtb"
 
 echo "setting boot args"
-setenv bootargs "root=/dev/mmcblk0p2 earlyprintk console=ttyS2,1500000n8 rw rootwait"
+setenv bootargs "root=/dev/mmcblk1p2 earlyprintk console=ttyS2,1500000n8 rw rootwait"
 fatload mmc ${devnum}:${distro_bootpart} ${fdt_addr_r} ${fdtfile}
 fatload mmc ${devnum}:${distro_bootpart} ${kernel_addr_r} Image
 

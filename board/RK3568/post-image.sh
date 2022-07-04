@@ -47,3 +47,9 @@ echo
 # echo dd if=/dev/sdb of=/tmp/trust.img skip=24576 count=8192 bs=512
 # echo
 # echo
+echo
+echo
+echo
+echo NOTE: Uboot booting is currently a manual process.
+echo Copy and paste the contents of RK3568/boot.cmd into the uboot console (in small chunks). Linux will boot. Login as appropriate
+echo
