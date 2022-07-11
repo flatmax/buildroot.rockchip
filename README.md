@@ -90,6 +90,18 @@ OF=/dev/sdf; rootDrive=`mount | grep " / " | grep $OF`; if [ -z $rootDrive ]; th
 
 Connect to the console debug uart with a serial cable. Or, add the openssh-server pacakge to the buildsystem, then ssh in as user root, no pass.
 
+## ssh RSA keys
+
+To use ssh, put your id_rsa.pub into the authorized_keys in the overlays directory. This will autoload your public RSA key to the embedded system so that you can login.
+```
+$ mkdir -p overlays/root/.ssh; chmod go-rwx overlays/root/.ssh
+$ ls -ld overlays/root/.ssh
+drwx------ 2 me me 4096 Aug  3  2016 overlays/root/.ssh
+$ cat ~/.ssh/id_rsa.pub > overlays/root/.ssh/authorized_keys
+$ ls -l overlays/root/.ssh/authorized_keys
+-rw-r--r-- 1 me me 748 Feb 24 11:17 overlays/root/.ssh/authorized_keys
+```
+
 # Rock 3 a
 Uboot commands are still manual at this point. Cut and paste the contents of boot.cmd into console when uboot comes up to get linux to boot. This is working for the Radxa CM3 board and the fix is to use host mkimage rather the uboot's mkimage because of a bug there.
 
