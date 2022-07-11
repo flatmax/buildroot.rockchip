@@ -1,0 +1,4 @@
+config BR2_PACKAGE_RKBIN3588
+        bool "rkbin3588"
+        help
+          Rockchip binary blobs
