@@ -5,7 +5,7 @@ load mmc ${devnum} ${load_addr} vars.txt
 env import -t ${load_addr} ${filesize}
 
 echo "setting boot args"
-setenv bootargs "root=/dev/mmcblk1p2 earlyprintk console=ttyS2,1500000n8 rw rootwait"
+setenv bootargs "root=/dev/mmcblk2p2 earlyprintk console=ttyS2,1500000n8 rw rootwait"
 fatload mmc ${devnum}:${distro_bootpart} ${fdt_addr_r} ${fdtfile}
 fatload mmc ${devnum}:${distro_bootpart} ${kernel_addr_r} Image
 
