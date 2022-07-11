@@ -7,8 +7,6 @@ It is a 64 bit image. Based on buildroot, this directory is an external buildroo
 
 For the RK3399 buildroot images, have a look at this dedicated repo : https://github.com/flatmax/buildroot.rk3399.external
 
-RK3566 requires a little more work on the boot loader.
-
 # Initial setup
 
 Clone buildroot. For example :
