@@ -87,12 +87,13 @@ OF=/dev/sdf; rootDrive=`mount | grep " / " | grep $OF`; if [ -z $rootDrive ]; th
 
 Connect to the console debug uart with a serial cable. Or, add the openssh-server pacakge to the buildsystem, then ssh in as user root, no pass.
 
-# Rock 3 a and Rock cm3
-Uboot commands are still manual at this point. Cut and paste the contents of boot.cmd into console when uboot comes up to get linux to boot.
+# Rock 3 a
+Uboot commands are still manual at this point. Cut and paste the contents of boot.cmd into console when uboot comes up to get linux to boot. This is working for the Radxa CM3 board and the fix is to use host mkimage rather the uboot's mkimage because of a bug there.
 
 # TODO
 ## for the rk3308 board
 Try to find suitable rock-chip boot binaries on github. rk3308_ddr_589MHz_uart0_m0_v1.26.bin can't be found in rkbin.
 Shift uboot and the kernel to mainline Linux.
-## for the rk3568 board - rock 3 a and rock cm3
-work out why boot.cmd is not working with uboot - fix that. https://forum.radxa.com/t/autorun-a-uboot-script/10461
+## for the rk3568 board - rock 3 a
+Implement this fix for the rock 3a board
+https://forum.radxa.com/t/autorun-a-uboot-script/10461/6?u=flatmax
