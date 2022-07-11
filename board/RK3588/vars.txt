@@ -1,0 +1,2 @@
+overlays=rk3588-uart2-m0
+fdtfile=rockchip/rk3588-rock-5b.dtb

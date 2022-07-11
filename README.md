@@ -20,6 +20,7 @@ git clone git://git.busybox.net/buildroot buildroot
 # rock pi S tested with version : git checkout 2022.02.1
 # rock pi 3a tested with version : git checkout 73248c03fd04eddad78fea5096cd98b2a2d43e81
 # rock cm3 tested with version : git checkout 2022.05
+# rock 5b tested with version : git checkout 2022.05
 ```
 
 Make sure you have requirements :
@@ -47,6 +48,8 @@ git clone git@github.com:flatmax/buildroot.rockchip.git buildroot.rockchip.ext
 source buildroot.rockchip.ext/setup.rockPiS.sh yourPath/buildroot
 # for the Radxa rock 3 a board
 source buildroot.rockchip.ext/setup.rock3a.sh yourPath/buildroot
+# for the Radxa rock 5b board
+source buildroot.rockchip.ext/setup.rock5b.sh yourPath/buildroot
 # for the Radxa rock cm3 io board
 source buildroot.rockchip.ext/setup.cm3.sh yourPath/buildroot
 # For the RockPi E (rk3328 based board) [needs more work]
