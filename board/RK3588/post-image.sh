@@ -29,7 +29,7 @@ $ubootName/tools/mkimage -n rk3588 -T rksd -d $RKBIN/bin/rk35/rk3588_ddr_lp4_211
 
 # Generate the uboot script
 echo creating boot.scr
-$HOST_DIR/bin/mkimage -C none -A arm -T script -n 'flatmax load script' -d $BR2_EXTERNAL_RK3308_PATH/board/RK3588/boot.cmd $BINARIES_DIR/boot.scr
+$ubootName/tools/mkimage -C none -A arm -T script -n 'flatmax load script' -d $BR2_EXTERNAL_RK3308_PATH/board/RK3588/boot.cmd $BINARIES_DIR/boot.scr
 #
 # #make the trust image
 # echo creating trust.img
