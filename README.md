@@ -1,6 +1,6 @@
-# RK3308, RK3328, RK356X buildroot system
+# RK3308, RK3328, RK356X, RK3588 buildroot system
 
-Now builds for rk3308, rk3328 and RK3566
+Now builds for rk3308, rk3328, RK3566 and RK3588
 
 This repo generates a bootable sdcard image for the RK3xxx platform.
 It is a 64 bit image. Based on buildroot, this directory is an external buildroot tree - it integrates into the main buildroot tree seamlessly.
