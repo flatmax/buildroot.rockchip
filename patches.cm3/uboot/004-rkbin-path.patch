@@ -1,0 +1,51 @@
+Index: uboot-19cefea3b8a7e22fa29b39367b04a8ab90c5c765/scripts/fit.sh
+===================================================================
+--- uboot-19cefea3b8a7e22fa29b39367b04a8ab90c5c765.orig/scripts/fit.sh
++++ uboot-19cefea3b8a7e22fa29b39367b04a8ab90c5c765/scripts/fit.sh
+@@ -27,7 +27,7 @@ KERNEL_ADDR_PLACEHOLDER="0xffffff01"
+ RAMDISK_ADDR_PLACEHOLDER="0xffffff02"
+ # tools
+ MKIMAGE="./tools/mkimage"
+-RK_SIGN_TOOL="../rkbin/tools/rk_sign_tool"
++RK_SIGN_TOOL="../../images/rkbin/tools/rk_sign_tool"
+ FIT_UNPACK="./scripts/fit-unpack.sh"
+ CHECK_SIGN="./tools/fit_check_sign"
+ # key
+Index: uboot-19cefea3b8a7e22fa29b39367b04a8ab90c5c765/scripts/pack_resource.sh
+===================================================================
+--- uboot-19cefea3b8a7e22fa29b39367b04a8ab90c5c765.orig/scripts/pack_resource.sh
++++ uboot-19cefea3b8a7e22fa29b39367b04a8ab90c5c765/scripts/pack_resource.sh
+@@ -11,7 +11,7 @@ RSCE_NEW=resource.img
+ BOOT_OLD=$1
+ BOOT_NEW=boot.img
+ 
+-TOOL=../rkbin/tools/resource_tool
++TOOL=../../images/rkbin/tools/resource_tool
+ IMAGES=./tools/images/
+ TMP_DIR=.resource_tmp
+ TMP_DIR2=.boot_tmp
+Index: uboot-19cefea3b8a7e22fa29b39367b04a8ab90c5c765/scripts/uboot.sh
+===================================================================
+--- uboot-19cefea3b8a7e22fa29b39367b04a8ab90c5c765.orig/scripts/uboot.sh
++++ uboot-19cefea3b8a7e22fa29b39367b04a8ab90c5c765/scripts/uboot.sh
+@@ -50,6 +50,6 @@ if [ ${BIN_KB} -gt ${MAX_KB} ]; then
+ 	exit 1
+ fi
+ 
+-../rkbin/tools/loaderimage --pack --uboot u-boot.bin uboot.img ${LOAD_ADDR} ${SIZE}
++../../images/rkbin/tools/loaderimage --pack --uboot u-boot.bin uboot.img ${LOAD_ADDR} ${SIZE}
+ echo "pack uboot okay! Input: u-boot.bin"
+ echo
+Index: uboot-19cefea3b8a7e22fa29b39367b04a8ab90c5c765/scripts/unpack_resource.sh
+===================================================================
+--- uboot-19cefea3b8a7e22fa29b39367b04a8ab90c5c765.orig/scripts/unpack_resource.sh
++++ uboot-19cefea3b8a7e22fa29b39367b04a8ab90c5c765/scripts/unpack_resource.sh
+@@ -8,7 +8,7 @@
+ 
+ IMAGE_FILE=$1
+ OUTPUT_DIR=$2
+-PACK_TOOL=../rkbin/tools/resource_tool
++PACK_TOOL=../../images/rkbin/tools/resource_tool
+ 
+ usage()
+ {

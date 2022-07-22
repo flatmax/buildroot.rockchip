@@ -9,7 +9,7 @@ Index: uboot-19cefea3b8a7e22fa29b39367b04a8ab90c5c765/make.sh
 -RKBIN_TOOLS=../rkbin/tools
 -CROSS_COMPILE_ARM32=../prebuilts/gcc/linux-x86/arm/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
 -CROSS_COMPILE_ARM64=../prebuilts/gcc/linux-x86/aarch64/gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-
-+RKBIN_TOOLS=../rkbin-7d631e0d5b2d373b54d4533580d08fb9bd2eaad4/tools
++RKBIN_TOOLS=../../images/rkbin/tools
 +CROSS_COMPILE_ARM32=
 +CROSS_COMPILE_ARM64=../../host/bin/aarch64-buildroot-linux-uclibc-
  ########################################### User not touch #############################################
