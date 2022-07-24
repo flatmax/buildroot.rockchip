@@ -1,0 +1,27 @@
+Index: uboot-fd3d0a5310494dcbba510406e1e2d66806c1b901/make.sh
+===================================================================
+--- uboot-fd3d0a5310494dcbba510406e1e2d66806c1b901.orig/make.sh
++++ uboot-fd3d0a5310494dcbba510406e1e2d66806c1b901/make.sh
+@@ -16,15 +16,15 @@ RKBIN_TOOLS=../../images/rkbin/tools
+ 
+ # User's GCC toolchain and relative path
+ ADDR2LINE_ARM32=arm-linux-gnueabihf-addr2line
+-ADDR2LINE_ARM64=aarch64-linux-gnu-addr2line
++ADDR2LINE_ARM64=aarch64-linux-addr2line
+ OBJ_ARM32=arm-linux-gnueabihf-objdump
+-OBJ_ARM64=aarch64-linux-gnu-objdump
++OBJ_ARM64=aarch64-linux-objdump
+ NM_ARM32=arm-linux-gnueabihf-nm
+-NM_ARM64=aarch64-linux-gnu-nm
+-GCC_ARM32=arm-linux-gnueabihf-
+-GCC_ARM64=aarch64-linux-gnu-
+-TOOLCHAIN_ARM32=../prebuilts/gcc/linux-x86/arm/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf/bin
+-TOOLCHAIN_ARM64=../prebuilts/gcc/linux-x86/aarch64/gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu/bin
++NM_ARM64=aarch64-linux-nm
++GCC_ARM32=
++GCC_ARM64=aarch64-linux-
++TOOLCHAIN_ARM32=
++TOOLCHAIN_ARM64=../../host/bin
+ 
+ ########################################### User not touch #############################################
+ # Declare global INI file searching index name for every chip, update in select_chip_info()
