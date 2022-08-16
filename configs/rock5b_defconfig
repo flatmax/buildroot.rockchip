@@ -46,7 +46,8 @@ BR2_LINUX_KERNEL=y
 
 BR2_LINUX_KERNEL_CUSTOM_GIT=y
 BR2_LINUX_KERNEL_CUSTOM_REPO_URL="https://github.com/radxa/kernel.git"
-BR2_LINUX_KERNEL_CUSTOM_REPO_VERSION="stable-5.10-rock5"
+#BR2_LINUX_KERNEL_CUSTOM_REPO_VERSION="stable-5.10-rock5"
+BR2_LINUX_KERNEL_CUSTOM_REPO_VERSION="52f51a2b5ba178f331af62260d2da86d7472c14b"
 BR2_LINUX_KERNEL_USE_DEFCONFIG=y
 BR2_LINUX_KERNEL_DEFCONFIG="rockchip_linux"
 BR2_LINUX_KERNEL_INTREE_DTS_NAME="rockchip/rk3588-rock-5b"
@@ -75,7 +76,7 @@ BR2_DL_DIR="$(BASE_DIR)/../../buildroot.dl"
 
 # An example kernel module and devicetree overlay
 #BR2_PACKAGE_EXAMPLE_MODULE_OVERLAY=y
-BR2_LINUX_KERNEL_CONFIG_FRAGMENT_FILES=" $(BR2_EXTERNAL)/package/example-module-overlay/module-overlay-rk3308/kernel.fragment"
+BR2_LINUX_KERNEL_CONFIG_FRAGMENT_FILES=" $(BR2_EXTERNAL)/board/RK3588/kernel.fragment"
 
 # external packages
 BR2_PACKAGE_NTP=y
