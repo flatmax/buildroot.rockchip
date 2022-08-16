@@ -31,10 +31,6 @@ $ubootName/tools/mkimage -n rk3568 -T rksd -d $RKBIN/bin/rk35/rk3566_ddr_1056MHz
 echo creating boot.scr
 $HOST_DIR/bin/mkimage -C none -A arm -T script -a 0x00c00000 -e 0x00c00000 -n 'flatmax load script' -d $BR2_EXTERNAL_RK3308_PATH/board/RK3566.cm3/boot.cmd $BINARIES_DIR/boot.scr
 
-# #make the trust image
-# echo creating trust.img
-# ${boardDir}/mkRK3566Trust.sh ${BINARIES_DIR} ${RKBIN} trust.img
-
 # Put the device trees into the correct location
 mkdir -p $BINARIES_DIR/rockchip; cp -a $BINARIES_DIR/*.dtb $BINARIES_DIR/rockchip
 $BASE_DIR/../support/scripts/genimage.sh -c $BR2_EXTERNAL_RK3308_PATH/board/RK3566.cm3/genimage.cfg
