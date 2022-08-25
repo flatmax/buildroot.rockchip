@@ -5,7 +5,7 @@
 ################################################################################
 
 RKDEVICE_VERSION = 0fe366cf14a6d5d552a5bddbc7b8ff58260ae6e6
-RKDEVICE_SITE = https://github.com/rockchip-linux/device-custom.git
+RKDEVICE_SITE = https://github.com/radxa/device-custom.git
 RKDEVICE_SITE_METHOD = git
 RKDEVICE_INSTALL_IMAGES = YES
 
