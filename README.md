@@ -16,7 +16,7 @@ cd yourPath
 git clone git://git.busybox.net/buildroot buildroot
 
 # rock pi S tested with version : git checkout 2022.02.1
-# rock pi 3a tested with version : git checkout 2022.05
+# rock pi 3a tested with version : git checkout 2022.05.3
 # rock cm3 tested with version : git checkout 2022.05
 # rock 5b tested with version : git checkout 2022.05
 ```
