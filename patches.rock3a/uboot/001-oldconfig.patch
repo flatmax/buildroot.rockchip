@@ -1,8 +1,8 @@
-Index: uboot-fd3d0a5310494dcbba510406e1e2d66806c1b901/.config
+Index: uboot-cd33ad23135a97a8df0931d221b076f3bc6241ce/.config
 ===================================================================
 --- /dev/null
-+++ uboot-fd3d0a5310494dcbba510406e1e2d66806c1b901/.config
-@@ -0,0 +1,1580 @@
++++ uboot-cd33ad23135a97a8df0931d221b076f3bc6241ce/.config
+@@ -0,0 +1,1593 @@
 +#
 +# Automatically generated file; DO NOT EDIT.
 +# U-Boot 2017.09 Configuration
@@ -84,6 +84,7 @@ Index: uboot-fd3d0a5310494dcbba510406e1e2d66806c1b901/.config
 +# CONFIG_TARGET_MX35PDK is not set
 +# CONFIG_ARCH_BCM283X is not set
 +# CONFIG_TARGET_VEXPRESS_CA15_TC2 is not set
++# CONFIG_ARCH_BCMSTB is not set
 +# CONFIG_TARGET_VEXPRESS_CA5X2 is not set
 +# CONFIG_TARGET_VEXPRESS_CA9X4 is not set
 +# CONFIG_TARGET_BCM23550_W1D is not set
@@ -209,12 +210,6 @@ Index: uboot-fd3d0a5310494dcbba510406e1e2d66806c1b901/.config
 +CONFIG_CHIP_NAME=""
 +CONFIG_LOADER_INI=""
 +CONFIG_TRUST_INI=""
-+CONFIG_UBOOT_SIZE_KB=1024
-+CONFIG_UBOOT_NUM=4
-+CONFIG_TRUST_SIZE_KB=2048
-+CONFIG_TRUST_NUM=2
-+CONFIG_TRUST_RSA_MODE=2
-+CONFIG_TRUST_SHA_MODE=3
 +CONFIG_SPL_SERIAL_SUPPORT=y
 +CONFIG_BOARD_SPECIFIC_OPTIONS=y
 +# CONFIG_TPL_LIBCOMMON_SUPPORT is not set
@@ -245,7 +240,7 @@ Index: uboot-fd3d0a5310494dcbba510406e1e2d66806c1b901/.config
 +#
 +# ARM debug
 +#
-+CONFIG_DEFAULT_DEVICE_TREE="rk3568-rock-3-a"
++CONFIG_DEFAULT_DEVICE_TREE="rk3568-rock-3a"
 +CONFIG_SMBIOS_PRODUCT_NAME=""
 +CONFIG_DEBUG_UART=y
 +# CONFIG_AHCI is not set
@@ -590,10 +585,11 @@ Index: uboot-fd3d0a5310494dcbba510406e1e2d66806c1b901/.config
 +# CONFIG_CMD_NAND_TRIMFFS is not set
 +# CONFIG_CMD_NAND_LOCK_UNLOCK is not set
 +# CONFIG_CMD_NAND_TORTURE is not set
++CONFIG_CMD_NVME=y
 +# CONFIG_CMD_MMC_SPI is not set
 +# CONFIG_CMD_ONENAND is not set
 +CONFIG_CMD_PART=y
-+# CONFIG_CMD_PCI is not set
++CONFIG_CMD_PCI=y
 +# CONFIG_CMD_PCMCIA is not set
 +# CONFIG_CMD_READ is not set
 +CONFIG_CMD_ROCKUSB=y
@@ -698,6 +694,7 @@ Index: uboot-fd3d0a5310494dcbba510406e1e2d66806c1b901/.config
 +#
 +# Debug commands
 +#
++CONFIG_CMD_ATAGS=y
 +# CONFIG_CMD_BEDBUG is not set
 +# CONFIG_CMD_DIAG is not set
 +# CONFIG_CMD_KGDB is not set
@@ -741,7 +738,8 @@ Index: uboot-fd3d0a5310494dcbba510406e1e2d66806c1b901/.config
 +CONFIG_OF_SEPARATE=y
 +# CONFIG_OF_EMBED is not set
 +# CONFIG_OF_BOARD is not set
-+CONFIG_OF_LIST="rk3568-rock-3-a"
++# CONFIG_OF_PRIOR_STAGE is not set
++CONFIG_OF_LIST="rk3568-rock-3a"
 +# CONFIG_MULTI_DTB_FIT is not set
 +# CONFIG_SPL_MULTI_DTB_FIT is not set
 +CONFIG_OF_SPL_REMOVE_PROPS="clock-names assigned-clocks assigned-clock-rates assigned-clock-parents"
@@ -984,6 +982,7 @@ Index: uboot-fd3d0a5310494dcbba510406e1e2d66806c1b901/.config
 +# CONFIG_MMC_OMAP_HS is not set
 +CONFIG_MMC_SDHCI=y
 +CONFIG_MMC_SDHCI_SDMA=y
++# CONFIG_MMC_SDHCI_BCMSTB is not set
 +# CONFIG_MMC_SDHCI_CADENCE is not set
 +# CONFIG_MMC_SDHCI_KONA is not set
 +# CONFIG_MMC_SDHCI_MSM is not set
@@ -1047,6 +1046,8 @@ Index: uboot-fd3d0a5310494dcbba510406e1e2d66806c1b901/.config
 +CONFIG_SPI_NAND_BIWIN=y
 +CONFIG_SPI_NAND_ETRON=y
 +CONFIG_SPI_NAND_JSC=y
++CONFIG_SPI_NAND_SILICONGO=y
++CONFIG_SPI_NAND_UNIM=y
 +
 +#
 +# SPI Flash Support
@@ -1070,9 +1071,11 @@ Index: uboot-fd3d0a5310494dcbba510406e1e2d66806c1b901/.config
 +# CONFIG_SPI_FLASH_SST is not set
 +CONFIG_SPI_FLASH_WINBOND=y
 +CONFIG_SPI_FLASH_XMC=y
++# CONFIG_SPI_FLASH_XTX is not set
 +CONFIG_SPI_FLASH_USE_4K_SECTORS=y
 +# CONFIG_SPI_FLASH_DATAFLASH is not set
 +CONFIG_SPI_FLASH_MTD=y
++# CONFIG_SPL_SPI_FLASH_MTD is not set
 +
 +#
 +# UBI support
@@ -1110,11 +1113,13 @@ Index: uboot-fd3d0a5310494dcbba510406e1e2d66806c1b901/.config
 +# CONFIG_ALTERA_TSE is not set
 +# CONFIG_BCM_SF2_ETH is not set
 +CONFIG_DWC_ETH_QOS=y
++CONFIG_DWC_ETH_QOS_FULL=y
 +# CONFIG_E1000 is not set
 +# CONFIG_ETH_DESIGNWARE is not set
 +# CONFIG_ETHOC is not set
 +# CONFIG_FTMAC100 is not set
 +# CONFIG_MACB is not set
++# CONFIG_PCH_GBE is not set
 +# CONFIG_RGMII is not set
 +# CONFIG_RTL8139 is not set
 +# CONFIG_RTL8169 is not set
@@ -1122,7 +1127,14 @@ Index: uboot-fd3d0a5310494dcbba510406e1e2d66806c1b901/.config
 +# CONFIG_SUN4I_EMAC is not set
 +# CONFIG_SUN8I_EMAC is not set
 +CONFIG_GMAC_ROCKCHIP=y
-+# CONFIG_PCI is not set
++CONFIG_NVME=y
++CONFIG_PCI=y
++CONFIG_DM_PCI=y
++CONFIG_DM_PCI_COMPAT=y
++CONFIG_PCI_PNP=y
++# CONFIG_PCI_XILINX is not set
++# CONFIG_PCIE_LAYERSCAPE is not set
++CONFIG_PCIE_DW_ROCKCHIP=y
 +
 +#
 +# PHY Subsystem
@@ -1135,7 +1147,7 @@ Index: uboot-fd3d0a5310494dcbba510406e1e2d66806c1b901/.config
 +# CONFIG_PHY_ROCKCHIP_NANENG_USB2 is not set
 +# CONFIG_PHY_ROCKCHIP_INNO_USB3 is not set
 +CONFIG_PHY_ROCKCHIP_NANENG_EDP=y
-+# CONFIG_PHY_ROCKCHIP_SNPS_PCIE3 is not set
++CONFIG_PHY_ROCKCHIP_SNPS_PCIE3=y
 +# CONFIG_PHY_ROCKCHIP_TYPEC is not set
 +# CONFIG_MVEBU_COMPHY_SUPPORT is not set
 +
@@ -1207,7 +1219,7 @@ Index: uboot-fd3d0a5310494dcbba510406e1e2d66806c1b901/.config
 +CONFIG_REGULATOR_PWM=y
 +CONFIG_DM_REGULATOR_FIXED=y
 +# CONFIG_SPL_DM_REGULATOR_FIXED is not set
-+# CONFIG_DM_REGULATOR_GPIO is not set
++CONFIG_DM_REGULATOR_GPIO=y
 +CONFIG_REGULATOR_RK8XX=y
 +# CONFIG_DM_DVFS is not set
 +# CONFIG_CHARGER_BQ25700 is not set
@@ -1300,6 +1312,7 @@ Index: uboot-fd3d0a5310494dcbba510406e1e2d66806c1b901/.config
 +# CONFIG_ALTERA_SPI is not set
 +# CONFIG_ATCSPI200_SPI is not set
 +# CONFIG_ATMEL_SPI is not set
++# CONFIG_BCMSTB_SPI is not set
 +# CONFIG_CADENCE_QSPI is not set
 +# CONFIG_DESIGNWARE_SPI is not set
 +# CONFIG_EXYNOS_SPI is not set
@@ -1363,7 +1376,7 @@ Index: uboot-fd3d0a5310494dcbba510406e1e2d66806c1b901/.config
 +CONFIG_USB_XHCI_HCD=y
 +CONFIG_USB_XHCI_DWC3=y
 +# CONFIG_USB_XHCI_DWC3_OF_SIMPLE is not set
-+# CONFIG_USB_XHCI_PCI is not set
++CONFIG_USB_XHCI_PCI=y
 +CONFIG_USB_EHCI_HCD=y
 +# CONFIG_USB_EHCI_MSM is not set
 +# CONFIG_USB_EHCI_PCI is not set
@@ -1451,6 +1464,7 @@ Index: uboot-fd3d0a5310494dcbba510406e1e2d66806c1b901/.config
 +# CONFIG_ATMEL_HLCD is not set
 +# CONFIG_VIDEO_ROCKCHIP is not set
 +CONFIG_DRM_ROCKCHIP=y
++CONFIG_DRM_MEM_RESERVED_SIZE_MBYTES=32
 +CONFIG_DRM_DP_HELPER=y
 +CONFIG_DRM_ROCKCHIP_PANEL=y
 +CONFIG_DRM_ROCKCHIP_DW_HDMI=y
@@ -1534,7 +1548,6 @@ Index: uboot-fd3d0a5310494dcbba510406e1e2d66806c1b901/.config
 +CONFIG_SHA256=y
 +CONFIG_SHA512=y
 +# CONFIG_SHA_HW_ACCEL is not set
-+CONFIG_MD5=y
 +
 +#
 +# Compression Support

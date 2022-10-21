@@ -26,7 +26,7 @@ cp $ubootName/uboot.img $BINARIES_DIR/u-boot.itb
 # uboot creation
 # to take rockchip-bsp's boot loaders, rather then generating our own ...
 #cp ~/temp/rockchip-bsp/out/u-boot/idbloader.img ~/temp/rockchip-bsp/out/u-boot/u-boot.itb $BINARIES_DIR/
-$ubootName/tools/mkimage -n rk356x -T rksd -d $RKBIN/bin/rk35/rk3568_ddr_1056MHz_v1.08.bin:$ubootName/spl/u-boot-spl.bin $BINARIES_DIR/idbloader.img
+$ubootName/tools/mkimage -n rk3568 -T rksd -d $RKBIN/bin/rk35/rk3568_ddr_1056MHz_v1.08.bin:$ubootName/spl/u-boot-spl.bin $BINARIES_DIR/idbloader.img
 
 # Generate the uboot script
 $HOST_DIR/bin/mkimage -C none -A arm -T script -d $BR2_EXTERNAL_RK3308_PATH/board/RK3568/boot.cmd $BINARIES_DIR/boot.scr

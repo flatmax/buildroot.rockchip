@@ -16,7 +16,7 @@ cd yourPath
 git clone git://git.busybox.net/buildroot buildroot
 
 # rock pi S tested with version : git checkout 2022.02.1
-# rock pi 3a tested with version : git checkout 2022.05.3
+# rock pi 3a tested with version : git checkout 2022.08.1
 # rock cm3 tested with version : git checkout 2022.05
 # rock 5b tested with version : git checkout 2022.05
 ```
@@ -64,12 +64,6 @@ mkdir ../buildroot.dl
 
 # build the system
 
-## Radxa rock 3 a
-This board requires rkbin installed before uboot compiles
-```
-make rkbin
-```
-# Now build buildroot as per usual for all boards
 ```
 make
 ```
