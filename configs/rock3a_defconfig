@@ -9,12 +9,10 @@ BR2_ARM_EABIHF=y
 
 # Rock-Chip repos - mostly for sdcard image generation
 BR2_PACKAGE_RKBIN=y
-BR2_PACKAGE_RKDEVICE=y
 
 # post build sdcard image generaton
 BR2_ROOTFS_POST_BUILD_SCRIPT="$(BR2_EXTERNAL)/board/RK3568/post-build.sh"
 BR2_ROOTFS_POST_IMAGE_SCRIPT="$(BR2_EXTERNAL)/board/RK3568/post-image.sh"
-BR2_ROOTFS_POST_SCRIPT_ARGS="RK3566"
 
 # Filesystems
 BR2_TARGET_ROOTFS_EXT2=y
