@@ -36,7 +36,7 @@ sudo apt-get install -y cpio unzip rsync python3
 
 Clone the external buildroot tree :
 ```
-git clone git@github.com:flatmax/buildroot.rockchip.git buildroot.rockchip.ext
+git clone https://github.com/flatmax/buildroot.rockchip.git buildroot.rockchip.ext
 ```
 
 # To make the system
