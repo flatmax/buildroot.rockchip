@@ -1,0 +1,7 @@
+config BR2_PACKAGE_DUMMY_SOUNDCARD
+	bool "dummy-soundcard"
+	depends on BR2_LINUX_KERNEL
+	help
+	  dummy soundcard module and devicetree overlay.
+
+	  Lead in for developers to add modules and overlays which are out of tree.

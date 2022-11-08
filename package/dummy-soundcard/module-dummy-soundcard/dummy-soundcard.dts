@@ -1,0 +1,77 @@
+/dts-v1/;
+/plugin/;
+
+// Example dts overlay for the rk33xx
+
+/ {
+	compatible = "rockchip,rk3399";
+
+	fragment@0 {
+			target = <&i2s1_8ch>;
+			__overlay__ {
+				rockchip,clk-trcm = <1>;
+				pinctrl-names = "default";
+				pinctrl-0 = <&i2s1m1_sclktx
+					     &i2s1m1_sclkrx
+					     &i2s1m1_lrcktx
+					     &i2s1m1_lrckrx
+					     &i2s1m1_sdi0
+					     &i2s1m1_sdi1
+					     &i2s1m1_sdi2
+					     &i2s1m1_sdi3
+					     &i2s1m1_sdo0
+					     &i2s1m1_sdo1
+					     &i2s1m1_sdo2
+					     &i2s1m1_sdo3
+							 &i2s1m1_mclk>;
+
+				status = "okay";
+			};
+	};
+
+	fragment@1 {
+		target-path = "/";
+		__overlay__ {
+			sound {
+				status = "okay";
+				compatible = "simple-audio-card";
+				simple-audio-card,name = "test";
+				simple-audio-card,format="i2s";
+
+				simple-audio-card,bitclock-master = <&cpu_dai>;
+				simple-audio-card,frame-master = <&cpu_dai>;
+				simple-audio-card,mclk-fs = <256>;
+
+				cpu_dai: simple-audio-card,cpu {
+					sound-dai = <&i2s1_8ch>;
+				};
+
+				codec_dai: simple-audio-card,codec {
+					sound-dai = <&i2s1_out>;
+				};
+
+			};
+
+			i2s1_out: i2s1-out {
+	      #sound-dai-cells = <0>;
+	      compatible = "flatmax,bare";
+	      status = "okay";
+      };
+		};
+	};
+
+	fragment@2 {
+		target = <&hdmi_sound>;
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@3 {
+		target = <&rk817_sound>;
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+};
