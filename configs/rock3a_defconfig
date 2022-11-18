@@ -78,7 +78,7 @@ BR2_DL_DIR="$(BASE_DIR)/../../buildroot.dl"
 
 # An example kernel module and devicetree overlay
 #BR2_PACKAGE_EXAMPLE_MODULE_OVERLAY=y
-BR2_LINUX_KERNEL_CONFIG_FRAGMENT_FILES=" $(BR2_EXTERNAL)/package/example-module-overlay/module-overlay-rk3308/kernel.fragment"
+BR2_LINUX_KERNEL_CONFIG_FRAGMENT_FILES=" $(BR2_EXTERNAL)/board/RK3568/kernel.fragment"
 
 # external packages
 BR2_PACKAGE_NTP=y
