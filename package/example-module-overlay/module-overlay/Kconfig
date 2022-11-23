@@ -1,0 +1,5 @@
+config SND_SOC_MODULE_OVERLAY_EXAMPLE
+        tristate "module and device tree example"
+        default n
+        help
+          buildroot.rockchip example kernel module and device tree
