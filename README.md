@@ -32,6 +32,11 @@ If building in a minimal Docker image, you will also require :
 sudo apt-get install -y cpio unzip rsync python3
 ```
 
+If building for the cm3 and rock3 derivatives (and possibly others), you will need a minimal python2 system :
+```
+sudo apt install python2
+```
+
 ***The above instructions apply to Debian-based distros.  Buildroot works on other distros, but installing the above dependencies is beyond the scope of this README; check your distro's package manager documentation.  Additionally the dash shell is required on distros where it is not the default.***
 
 Clone the external buildroot tree :
