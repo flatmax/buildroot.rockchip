@@ -1,0 +1,50 @@
+#!/bin/sh
+
+bridgeName="br0"
+etherInterface="eth0"
+
+case "$1" in
+  "start") echo "Starting usb bridging"
+    # Loading the appropriate kernel modules
+    modprobe dwc3-of-simple
+    modprobe dwc3-rockchip-inno
+    modprobe g_ether
+
+    # Bridge setup
+    ip link add name $bridgeName type bridge
+    ip link set dev usb0 master $bridgeName
+    ip link set dev $etherInterface master $bridgeName
+
+    ip link set dev $etherInterface down
+    ip link set dev usb0 down
+
+    ip address add 0.0.0.0 dev $etherInterface
+    ip link set dev $etherInterface up
+
+    ip address add 0.0.0.0 dev usb0
+    ip link set dev usb0 up
+
+    ip link set dev $bridgeName up
+
+    udhcpc -i br0
+
+  ;;
+  "stop") echo "Stopping usb-bridging"
+    # Removing the interface
+    ip link set dev $etherInterface nomaster
+    ip link set dev usb0 nomaster
+    ip link delete dev $bridgeName
+    ip link delete dev usb0
+
+    # Removing the kernel modules
+    rmmod g_ether
+    rmmod dwc3-of-simple
+    rmmod dwc3-rockchip-inno
+
+    # Getting the eth0 interface back to normal
+    ip link set dev $etherInterface down
+    ip address add 0.0.0.0 dev $etherInterface
+    ip link set dev $etherInterface up
+    udhcpc -i $etherInterface
+  ;;
+esac
