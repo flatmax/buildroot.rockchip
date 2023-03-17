@@ -1,0 +1,8 @@
+config BR2_PACKAGE_USB_BRIDGE
+  select BR2_PACKAGE_BRIDGE_UTILS
+  bool "usb-bridge"
+  help
+    This package creates and configures a usb gadget 
+    network and a bridge.
+
+    santos.baez.gabriel.elo@gmail.com

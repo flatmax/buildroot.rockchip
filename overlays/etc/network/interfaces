@@ -1,0 +1,8 @@
+# interface file created by flatmax
+
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet manual
+  hostname $(hostname)
