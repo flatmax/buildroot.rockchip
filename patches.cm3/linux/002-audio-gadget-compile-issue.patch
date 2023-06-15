@@ -1,0 +1,21 @@
+Index: linux-f0b4c3d6f86f433280662a6158e0bc1b4d83503a/drivers/usb/gadget/function/u_audio.h
+===================================================================
+--- linux-f0b4c3d6f86f433280662a6158e0bc1b4d83503a.orig/drivers/usb/gadget/function/u_audio.h
++++ linux-f0b4c3d6f86f433280662a6158e0bc1b4d83503a/drivers/usb/gadget/function/u_audio.h
+@@ -10,6 +10,7 @@
+ #define __U_AUDIO_H
+
+ #include <linux/usb/composite.h>
++#include <linux/usb/audio.h>
+
+ #define UAC_VOLUME_CUR                 0x0000
+ #define UAC_VOLUME_RES                 0x0080 /* 0.5 dB */
+@@ -17,6 +18,8 @@
+ #define UAC_VOLUME_MIN                 0xE700 /* -25 dB */
+ #define UAC_VOLUME_NEGATIVE_INFINITY   0x8000
+ #define UAC_MAX_RATES 10
++
++
+ struct uac_params {
+        /* playback */
+        int p_volume;
