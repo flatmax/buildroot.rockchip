@@ -10,8 +10,24 @@ config BR2_PACKAGE_GTKIOSTREAM
   select BR2_PACKAGE_ALSA_UTILS
   select BR2_PACKAGE_ALSA_UTILS_AMIXER
   select BR2_PACKAGE_ALSA_UTILS_APLAY
-  select BR2_PACKAGE_LIBSOX
+  # The following are for sox
+  select BR2_PACKAGE_FILE
+  select BR2_PACKAGE_FLAC
+  select BR2_PACKAGE_LAME
+  select BR2_PACKAGE_LIBMAD
+  select BR2_PACKAGE_LIBPNG
+  select BR2_PACKAGE_LIBSNDFILE
+  select BR2_PACKAGE_LIBVORBIS
+  select BR2_PACKAGE_OPENCORE_AMR
+  select BR2_PACKAGE_OPUSFILE
+  select BR2_PACKAGE_LIBID3TAG
+  select BR2_PACKAGE_LIBGSM
+  select BR2_PACKAGE_LIBAO
+  select BR2_PACKAGE_SOX
         help
           gtkiostream package
 
-          https://sourceforge.net/projects/gtkiostream
+          https://github.com/flatmax/gtkiostream
+
+comment "gtkiostream needs OpenMP"
+	depends on !BR2_TOOLCHAIN_HAS_OPENMP
