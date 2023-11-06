@@ -20,6 +20,8 @@
 #include <linux/module.h>
 #include <linux/types.h>
 #include <linux/platform_device.h>
+#include <linux/of_device.h>
+#include <linux/of_platform.h>
 
 #include <linux/version.h>
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(5,10,0)
@@ -44,6 +46,6 @@ static struct platform_driver module_overlay_driver = {
 module_platform_driver(module_overlay_driver);
 MODULE_AUTHOR("Matt Flax <flatmax@>");
 MODULE_AUTHOR("Matt <matt@audioinjector.net>");
-MODULE_DESCRIPTION("AudioInjector.net rk3308 module overlay example");
+MODULE_DESCRIPTION("buildroot.rockchip module overlay example");
 MODULE_LICENSE("GPL v2");
 MODULE_ALIAS("platform:module-overlay-rk3308");

@@ -1,0 +1,16 @@
+/dts-v1/;
+/plugin/;
+
+// Audioinjector.net example dts overlay
+
+/ {
+	fragment@0 {
+		target-path = "/";
+			__overlay__ {
+				sound {
+					compatible = "ai,audioinjector-example";
+					status = "okay";
+			};
+		};
+	};
+};

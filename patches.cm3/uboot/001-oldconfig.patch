@@ -1,7 +1,7 @@
-Index: uboot-cd33ad23135a97a8df0931d221b076f3bc6241ce/.config
+Index: uboot-19cefea3b8a7e22fa29b39367b04a8ab90c5c765/.config
 ===================================================================
 --- /dev/null
-+++ uboot-cd33ad23135a97a8df0931d221b076f3bc6241ce/.config
++++ uboot-19cefea3b8a7e22fa29b39367b04a8ab90c5c765/.config
 @@ -0,0 +1,1593 @@
 +#
 +# Automatically generated file; DO NOT EDIT.
@@ -240,7 +240,7 @@ Index: uboot-cd33ad23135a97a8df0931d221b076f3bc6241ce/.config
 +#
 +# ARM debug
 +#
-+CONFIG_DEFAULT_DEVICE_TREE="rk3568-rock-3a"
++CONFIG_DEFAULT_DEVICE_TREE="rk3566-radxa-cm3-io"
 +CONFIG_SMBIOS_PRODUCT_NAME=""
 +CONFIG_DEBUG_UART=y
 +# CONFIG_AHCI is not set
@@ -739,7 +739,7 @@ Index: uboot-cd33ad23135a97a8df0931d221b076f3bc6241ce/.config
 +# CONFIG_OF_EMBED is not set
 +# CONFIG_OF_BOARD is not set
 +# CONFIG_OF_PRIOR_STAGE is not set
-+CONFIG_OF_LIST="rk3568-rock-3a"
++CONFIG_OF_LIST="rk3566-radxa-cm3-io"
 +# CONFIG_MULTI_DTB_FIT is not set
 +# CONFIG_SPL_MULTI_DTB_FIT is not set
 +CONFIG_OF_SPL_REMOVE_PROPS="clock-names assigned-clocks assigned-clock-rates assigned-clock-parents"
