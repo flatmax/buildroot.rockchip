@@ -14,14 +14,13 @@ if [ -d ${linuxDir}/arch/arm64/boot/dts/rockchip/overlay ]; then
   cp -a ${linuxDir}/arch/arm64/boot/dts/rockchip/overlay/*.dtbo $BINARIES_DIR/rockchip/overlays
 fi
 
-ubootName=`find $BASE_DIR/build -name 'uboot-*' -type d`
+ubootName=`find $BASE_DIR/build -name 'uboot-*' -type d | head -n 1`
 boardDir=`dirname $_`
 
-echo creating uboot.img
-currentDir=`pwd`
-cd $ubootName; ./make.sh;
-cd $currentDir
-cp $ubootName/uboot.img $BINARIES_DIR/u-boot.itb
+echo copying uboot.itb
+echo $ubootName
+echo $BINARIES_DIR
+cp $ubootName/u-boot.itb $BINARIES_DIR/u-boot.itb
 
 # uboot creation
 # to take rockchip-bsp's boot loaders, rather then generating our own ...

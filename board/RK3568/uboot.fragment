@@ -1,0 +1,83 @@
+## Normal U-Boot
+CONFIG_BOOTDELAY=0
+CONFIG_AUTOBOOT_KEYED=y
+CONFIG_AUTOBOOT_KEYED_CTRLC=y
+CONFIG_AUTOBOOT_STOP_STR="\x03"
+CONFIG_AUTOBOOT_PROMPT="Hit Ctrl+C key in %d seconds to stop autoboot...\n"
+CONFIG_BOOTCOMMAND="bootflow scan; run distro_bootcmd; echo Boot failed. Reset in 3 seconds...; sleep 3; reset;"
+## radxa-zero-erase-emmc
+# CONFIG_BOOTCOMMAND="until mmc dev 2 0; do echo Cannot access eMMC. Retrying...; sleep 1; mmc rescan; done; mmc erase 0 20000; mmc dev 2 1 && mmc erase 0 2000; mmc dev 2 2 && mmc erase 0 2000; mbr write mmc 2 'size=-,id=0x83'; echo Enter ums mode. Press Ctrl+C to stop...; ums 0 mmc 2;"
+## rz-udisk-loader
+# CONFIG_BOOTCOMMAND="echo Enter ums mode. Press Ctrl+C to stop...; until mmc dev 2 0; do echo Cannot access eMMC. Retrying...; sleep 1; mmc rescan; done; ums 0 mmc 2;"
+## rz-fastboot-loader
+# CONFIG_BOOTCOMMAND="env set serial# RADXA; echo Enter fastboot mode. Press Ctrl+C to stop...; fastboot usb 0;"
+CONFIG_USB_GADGET_PRODUCT_NUM=0x2200
+
+## Enable hush shell, which is required for keyword like until
+CONFIG_HUSH_PARSER=y
+
+## Enable USB keyboard
+CONFIG_SYS_STDIO_DEREGISTER=y
+CONFIG_USB_KEYBOARD=y
+CONFIG_USE_PREBOOT=y
+CONFIG_PREBOOT="usb start; pci enum"
+
+## Add partition table tools
+CONFIG_CMD_MBR=y
+CONFIG_CMD_GPT=y
+
+## Enable fastboot
+CONFIG_CMD_FASTBOOT=y
+CONFIG_FASTBOOT_BUF_ADDR=0x13000000
+CONFIG_FASTBOOT_FLASH=y
+CONFIG_FASTBOOT_FLASH_MMC=y
+CONFIG_FASTBOOT_FLASH_MMC_DEV=2
+CONFIG_FASTBOOT_MMC_BOOT_SUPPORT=y
+CONFIG_FASTBOOT_MMC_USER_SUPPORT=y
+CONFIG_USB_FUNCTION_FASTBOOT=y
+
+## Enable fdt overlay
+CONFIG_OF_LIBFDT_OVERLAY=y
+
+## Enable SPI boot
+CONFIG_ROCKCHIP_SPI=y
+CONFIG_SPI_BOOT=y
+CONFIG_SPI_FLASH_XTX=y
+CONFIG_SPI_FLASH_WINBOND=y
+CONFIG_SPL_SPI=y
+CONFIG_SPL_SPI_FLASH_SUPPORT=y
+CONFIG_SPL_SPI_SUPPORT=y
+CONFIG_SPL_SPI_LOAD=y
+
+## Enable NVMe boot
+CONFIG_CMD_NVME=y
+
+## Enable USB mass storage
+CONFIG_USB_GADGET=y
+CONFIG_USB_GADGET_DOWNLOAD=y
+CONFIG_CMD_USB_MASS_STORAGE=y
+
+## Enable hardware commands
+CONFIG_CMD_GPIO=y
+CONFIG_CMD_GPIO_READ=y
+CONFIG_CMD_PWM=y
+
+## Enable LED support
+CONFIG_LED=y
+CONFIG_LED_GPIO=y
+CONFIG_CMD_LED=y
+
+## Disable U-Boot logo
+# CONFIG_VIDEO_LOGO is not set
+
+## Enable FAN53555
+CONFIG_CMD_PMIC=y
+CONFIG_CMD_REGULATOR=y
+CONFIG_DM_PMIC_FAN53555=y
+CONFIG_DM_REGULATOR_FAN53555=y
+
+## Enable HS200
+CONFIG_MMC_HS200_SUPPORT=y
+
+## Source:
+## https://github.com/radxa-repo/bsp/blob/main/u-boot/.common/kconfig.conf
