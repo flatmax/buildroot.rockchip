@@ -44,30 +44,4 @@ else
 LIBMRAA_CONF_OPTS += -DJSONPLAT=OFF
 endif
 
-# \
-define MRAA_INSTALL_TARGET_CMDS 
-    # Create necessary directories \
-    $(INSTALL) -d -m 0755 $(TARGET_DIR)/usr/include/{linux,arm,gpio} \
-
-    # Install specific header file \
-    $(INSTALL) -D -m 0644 $(@D)/include/linux/gpio.h $(TARGET_DIR)/usr/include/linux/gpio.h
-
-    # Install header files from include to /usr/include \
-    for header in mraa_adv_func.h mraa_internal.h mraa_internal_types.h mraa_lang_func.h; do \
-        $(INSTALL) -D -m 0644 $(@D)/include/$$header $(TARGET_DIR)/usr/include/$$header; \
-    done
-
-    # Populate /usr/include/arm and /usr/include/gpio \
-    for dir in arm gpio; do \
-        for file in $(@D)/include/$$dir/*; do \
-            if [ -f $$file ]; then \
-                $(INSTALL) -m 0644 $$file $(TARGET_DIR)/usr/include/$$dir/; \
-            fi; \
-        done; \
-    done \
-endef 
-
-
-# MRAA_POST_INSTALL_TARGET_HOOKS += MRAA_INSTALL_TARGET_CMDS
-
 $(eval $(cmake-package))
