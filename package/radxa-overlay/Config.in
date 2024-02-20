@@ -1,0 +1,4 @@
+config BR2_PACKAGE_RADXA_OVERLAY
+        bool "radxa overlay"
+        help
+          Radxa device tree source files for Rockchip SoC boards

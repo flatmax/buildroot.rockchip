@@ -6,13 +6,21 @@ RKCHIP=$2
 
 UBOOT_DIR=`find $BASE_DIR/build -name 'uboot-*' -type d | head -n 1`
 LINUX_DIR=`find $BASE_DIR/build -name 'vmlinux' -type f | xargs dirname`
+RADXA_OVERLAY_DIR=`find $BASE_DIR/build -name 'radxa-overlay-*' -type d | head -n 1`
 
-# copy uboot variable file over
-cp -a $BR2_EXTERNAL_RK3308_PATH/board/RK3568/vars.txt $BINARIES_DIR/
+echo compiling radxa rk3568 overlays
+for DTS_FILE in ${RADXA_OVERLAY_DIR}/arch/arm64/boot/dts/rockchip/overlays/rk3568-*.dts; do
+    DTBO_FILE="${DTS_FILE%.dts}.dtbo"
+    dtc -I dts -O dtb -o "${DTBO_FILE}" "${DTS_FILE}"
+    
+    DTS_FILENAME=$(basename "${DTS_FILE}")
+    DTBO_FILENAME=$(basename "${DTBO_FILE}")
+    echo "Compiled ${DTS_FILENAME} to ${DTBO_FILENAME}"
+done
 
-# overlays are no longer compiled in kernel as dtbo, add to overlays dir and copy to binaries dir
+echo copying compiled dtbo to images/rockchip/overlays/ dir
 mkdir -p $BINARIES_DIR/rockchip/overlays
-cp -a $BR2_EXTERNAL_RK3308_PATH/board/RK3568/overlays/* $BINARIES_DIR/rockchip/overlays/
+cp -a "${RADXA_OVERLAY_DIR}/arch/arm64/boot/dts/rockchip/overlays/"*.dtbo $BINARIES_DIR/rockchip/overlays/
 cp $LINUX_DIR/arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dtb $BINARIES_DIR/rockchip/rk3568-rock-3a.dtb
 
 echo copying uboot.itb
