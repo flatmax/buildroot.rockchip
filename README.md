@@ -68,7 +68,12 @@ mkdir ../buildroot.dl
 ```
 
 # build the system
-
+## rock3a build
+rkbin must be built before uboot and the kernel as they depend on rockchip binaries from this package, run the following before running a full make
+```
+make rkbin
+```
+## general build
 ```
 make
 ```
