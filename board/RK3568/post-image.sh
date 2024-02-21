@@ -4,29 +4,32 @@ RKBIN=$BINARIES_DIR/rkbin
 RKCHIP_LOADER=$2
 RKCHIP=$2
 
-# copy uboot variable file over
-cp -a $BR2_EXTERNAL_RK3308_PATH/board/RK3568/vars.txt $BINARIES_DIR/
+UBOOT_DIR=`find $BASE_DIR/build -name 'uboot-*' -type d | head -n 1`
+LINUX_DIR=`find $BASE_DIR/build -name 'vmlinux' -type f | xargs dirname`
+RADXA_OVERLAY_DIR=`find $BASE_DIR/build -name 'radxa-overlay-*' -type d | head -n 1`
 
-# copy overlays over
-linuxDir=`find $BASE_DIR/build -name 'vmlinux' -type f | xargs dirname`
+echo compiling radxa rk3568 overlays
+for DTS_FILE in ${RADXA_OVERLAY_DIR}/arch/arm64/boot/dts/rockchip/overlays/rk3568-*.dts; do
+    DTBO_FILE="${DTS_FILE%.dts}.dtbo"
+    dtc -I dts -O dtb -o "${DTBO_FILE}" "${DTS_FILE}"
+    
+    DTS_FILENAME=$(basename "${DTS_FILE}")
+    DTBO_FILENAME=$(basename "${DTBO_FILE}")
+    echo "Compiled ${DTS_FILENAME} to ${DTBO_FILENAME}"
+done
+
+echo copying compiled dtbo to images/rockchip/overlays/ dir
 mkdir -p $BINARIES_DIR/rockchip/overlays
-if [ -d ${linuxDir}/arch/arm64/boot/dts/rockchip/overlay ]; then
-  cp -a ${linuxDir}/arch/arm64/boot/dts/rockchip/overlay/*.dtbo $BINARIES_DIR/rockchip/overlays
-fi
+cp -a "${RADXA_OVERLAY_DIR}/arch/arm64/boot/dts/rockchip/overlays/"*.dtbo $BINARIES_DIR/rockchip/overlays/
+cp $LINUX_DIR/arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dtb $BINARIES_DIR/rockchip/rk3568-rock-3a.dtb
 
-ubootName=`find $BASE_DIR/build -name 'uboot-*' -type d`
-boardDir=`dirname $_`
-
-echo creating uboot.img
-currentDir=`pwd`
-cd $ubootName; ./make.sh;
-cd $currentDir
-cp $ubootName/uboot.img $BINARIES_DIR/u-boot.itb
+echo copying uboot.itb
+cp $UBOOT_DIR/u-boot.itb $BINARIES_DIR/u-boot.itb
 
 # uboot creation
 # to take rockchip-bsp's boot loaders, rather then generating our own ...
 #cp ~/temp/rockchip-bsp/out/u-boot/idbloader.img ~/temp/rockchip-bsp/out/u-boot/u-boot.itb $BINARIES_DIR/
-$ubootName/tools/mkimage -n rk3568 -T rksd -d $RKBIN/bin/rk35/rk3568_ddr_1056MHz_v1.08.bin:$ubootName/spl/u-boot-spl.bin $BINARIES_DIR/idbloader.img
+$UBOOT_DIR/tools/mkimage -n rk3568 -T rksd -d $RKBIN/bin/rk35/rk3568_ddr_1056MHz_v1.08.bin:$UBOOT_DIR/spl/u-boot-spl.bin $BINARIES_DIR/idbloader.img
 
 # Generate the uboot script
 $HOST_DIR/bin/mkimage -C none -A arm -T script -d $BR2_EXTERNAL_RK3308_PATH/board/RK3568/boot.cmd $BINARIES_DIR/boot.scr

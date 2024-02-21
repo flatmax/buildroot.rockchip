@@ -24,7 +24,7 @@ git clone git://git.busybox.net/buildroot buildroot
 Make sure you have requirements :
 ```
 sudo apt-get install -y build-essential gcc g++ autoconf automake libtool bison flex gettext
-sudo apt-get install -y patch texinfo wget git gawk curl lzma bc quilt
+sudo apt-get install -y patch texinfo wget git gawk curl lzma bc quilt swig
 ```
 
 If building in a minimal Docker image, you will also require :
