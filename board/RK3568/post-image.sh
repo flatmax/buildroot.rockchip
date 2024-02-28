@@ -18,6 +18,9 @@ for DTS_FILE in ${RADXA_OVERLAY_DIR}/arch/arm64/boot/dts/rockchip/overlays/rk356
     echo "Compiled ${DTS_FILENAME} to ${DTBO_FILENAME}"
 done
 
+# copy uboot variable file over
+cp -a $BR2_EXTERNAL_RK3308_PATH/board/RK3568/vars.txt $BINARIES_DIR/
+
 echo copying compiled dtbo to images/rockchip/overlays/ dir
 mkdir -p $BINARIES_DIR/rockchip/overlays
 cp -a "${RADXA_OVERLAY_DIR}/arch/arm64/boot/dts/rockchip/overlays/"*.dtbo $BINARIES_DIR/rockchip/overlays/
@@ -28,8 +31,7 @@ cp $UBOOT_DIR/u-boot.itb $BINARIES_DIR/u-boot.itb
 
 # uboot creation
 # to take rockchip-bsp's boot loaders, rather then generating our own ...
-#cp ~/temp/rockchip-bsp/out/u-boot/idbloader.img ~/temp/rockchip-bsp/out/u-boot/u-boot.itb $BINARIES_DIR/
-$UBOOT_DIR/tools/mkimage -n rk3568 -T rksd -d $RKBIN/bin/rk35/rk3568_ddr_1056MHz_v1.08.bin:$UBOOT_DIR/spl/u-boot-spl.bin $BINARIES_DIR/idbloader.img
+$UBOOT_DIR/tools/mkimage -n rk3568 -T rksd -d $RKBIN/bin/rk35/rk3568_ddr_1056MHz_v1.19.bin:$UBOOT_DIR/spl/u-boot-spl.bin $BINARIES_DIR/idbloader.img
 
 # Generate the uboot script
 $HOST_DIR/bin/mkimage -C none -A arm -T script -d $BR2_EXTERNAL_RK3308_PATH/board/RK3568/boot.cmd $BINARIES_DIR/boot.scr
