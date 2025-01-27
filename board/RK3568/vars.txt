@@ -1,2 +1,2 @@
-overlays=rk3568-fiq-debugger-uart2m0 module-overlay-example
+overlays=#rk3568-fiq-debugger-uart2m0 module-overlay-example
 fdtfile=rockchip/rk3568-rock-3a.dtb

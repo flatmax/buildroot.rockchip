@@ -1,6 +1,6 @@
 menu "Packages"
 source "$BR2_EXTERNAL_RK3308_PATH/package/libsox/Config.in"
-source "$BR2_EXTERNAL_RK3308_PATH/package/gtkiostream/Config.in"
+#source "$BR2_EXTERNAL_RK3308_PATH/package/gtkiostream/Config.in"
 source "$BR2_EXTERNAL_RK3308_PATH/package/rkbin/Config.in"
 source "$BR2_EXTERNAL_RK3308_PATH/package/rkbin3588/Config.in"
 source "$BR2_EXTERNAL_RK3308_PATH/package/rktools/Config.in"

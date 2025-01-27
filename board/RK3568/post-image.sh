@@ -8,22 +8,24 @@ UBOOT_DIR=`find $BASE_DIR/build -name 'uboot-*' -type d | head -n 1`
 LINUX_DIR=`find $BASE_DIR/build -name 'vmlinux' -type f | xargs dirname`
 RADXA_OVERLAY_DIR=`find $BASE_DIR/build -name 'radxa-overlay-*' -type d | head -n 1`
 
-echo compiling radxa rk3568 overlays
-for DTS_FILE in ${RADXA_OVERLAY_DIR}/arch/arm64/boot/dts/rockchip/overlays/rk3568-*.dts; do
-    DTBO_FILE="${DTS_FILE%.dts}.dtbo"
-    dtc -I dts -O dtb -o "${DTBO_FILE}" "${DTS_FILE}"
-    
-    DTS_FILENAME=$(basename "${DTS_FILE}")
-    DTBO_FILENAME=$(basename "${DTBO_FILE}")
-    echo "Compiled ${DTS_FILENAME} to ${DTBO_FILENAME}"
-done
+# echo compiling radxa rk3568 overlays
+# for DTS_FILE in ${RADXA_OVERLAY_DIR}/arch/arm64/boot/dts/rockchip/overlays/rk3568-*.dts; do
+#     DTBO_FILE="${DTS_FILE%.dts}.dtbo"
+#     dtc -I dts -O dtb -o "${DTBO_FILE}" "${DTS_FILE}"
+#
+#     DTS_FILENAME=$(basename "${DTS_FILE}")
+#     DTBO_FILENAME=$(basename "${DTBO_FILE}")
+#     echo "Compiled ${DTS_FILENAME} to ${DTBO_FILENAME}"
+# done
 
 # copy uboot variable file over
 cp -a $BR2_EXTERNAL_RK3308_PATH/board/RK3568/vars.txt $BINARIES_DIR/
 
-echo copying compiled dtbo to images/rockchip/overlays/ dir
-mkdir -p $BINARIES_DIR/rockchip/overlays
-cp -a "${RADXA_OVERLAY_DIR}/arch/arm64/boot/dts/rockchip/overlays/"*.dtbo $BINARIES_DIR/rockchip/overlays/
+# echo copying compiled dtbo to images/rockchip/overlays/ dir
+#mkdir -p $BINARIES_DIR/rockchip/overlays
+#cp -a "${RADXA_OVERLAY_DIR}/arch/arm64/boot/dts/rockchip/overlays/"*.dtbo $BINARIES_DIR/rockchip/overlays/
+echo copying the dtb over
+mkdir -p $BINARIES_DIR/rockchip
 cp $LINUX_DIR/arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dtb $BINARIES_DIR/rockchip/rk3568-rock-3a.dtb
 
 echo copying uboot.itb
@@ -49,5 +51,5 @@ echo
 echo write your image to the sdcard, don\'t forget to change OF=/dev/sdb to your sdcard drive ...
 echo use the following command ...
 echo
-echo 'OF=/dev/sdc; rootDrive=`mount | grep " / " | grep $OF`; if [ -z $rootDrive ]; then sudo umount $OF[123456789]; sudo dd if=output/images/sdcard.img of=$OF bs=10M; else echo you are trying to overwrite your root drive; fi'
+echo 'OF=/dev/sdb; rootDrive=`mount | grep " / " | grep $OF`; if [ -z $rootDrive ]; then sudo umount $OF[123456789]; sudo dd if=output/images/sdcard.img of=$OF bs=10M; else echo you are trying to overwrite your root drive; fi'
 echo
