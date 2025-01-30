@@ -1,0 +1,4 @@
+config BR2_PACKAGE_AES67_SETUP
+		bool "aes67-setup"
+		help
+	  	AES67 setup
