@@ -1,0 +1,147 @@
+#!/bin/sh
+#
+# Starts the aes67 subsystem
+#
+
+mktempDIR(){
+  prefix="pipewire"
+  temp_dir=$(mktemp -d /tmp/XXXXXX)
+  mv "$temp_dir" "/tmp/${prefix}.$(basename "$temp_dir")"  # Rename
+  temp_dir="/tmp/${prefix}.$(basename "$temp_dir")" # Update variable
+  echo "$temp_dir"
+  export PIPEWIRE_RUNTIME_DIR=$temp_dir
+}
+
+startDbus(){
+  dbus-daemon --system --nopidfile
+  export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/dbus/system_bus_socket"
+}
+
+startPipewire(){
+  echo export PIPEWIRE_RUNTIME_DIR=$PIPEWIRE_RUNTIME_DIR
+  pipewire &
+#  wireplumber &
+}
+
+get_node_id_by_name() {
+    local name_to_find="$1"
+
+    # We'll use a sed script that:
+    # 1) Captures the numeric ID whenever we see "id N," lines
+    # 2) When we find a line with 'node.name = "..."' matching name_to_find,
+    #    we print the last captured ID and quit.
+    sed -n '
+        # Whenever we match a line like "id 43, ...", capture the number.
+        /id [0-9]*,/ {
+            s/id \([0-9]*\).*/\1/
+            h
+        }
+        # If we see the target node.name, retrieve the captured ID from hold space, print, and quit.
+        /node.name = "'"$name_to_find"'"/ {
+            g
+            p
+            q
+        }
+    '
+}
+
+get_id_by_object_path() {
+    local path_to_find="$1"
+
+    sed -n "
+        # When we see something like 'id 53, ...' we capture that number into hold space
+        /^id [0-9]*,/ {
+            s/^id \([0-9]*\).*/\1/
+            h
+        }
+
+        # When we see the desired object.path, we retrieve the last captured ID, print, and quit
+        /^[[:space:]]*object\\.path = \"$path_to_find\"/ {
+            g
+            p
+            q
+        }
+    "
+}
+
+pipewireLink() {
+  # pw-link "rtp-sink:monitor_CH1" "alsa_output._sys_devices_platform_rk809-sound_sound_card0.stereo-fallback:monitor_FL"
+  # pw-link "rtp-sink:monitor_CH2" "alsa_output._sys_devices_platform_rk809-sound_sound_card0.stereo-fallback:monitor_FR"
+
+    # Capture the full, multiline output
+    # Quoting ensures BusyBox preserves newlines.
+    nodes_output="$(pw-cli ls)"
+
+    formatted_output="$(echo "$nodes_output" \
+        | sed 's/\(\s\|^\)\(id [0-9]*,\)/\n\2/g')"
+
+    # echo "=== After inserting newlines ==="
+    # echo "$formatted_output"
+    # echo "================================"
+
+    alsa0_node_id="$(echo "$formatted_output"  | get_id_by_object_path "alsa:acp:RK809:3:playback:playback_0")"
+    alsa1_node_id="$(echo "$formatted_output"  | get_id_by_object_path "alsa:acp:RK809:3:playback:playback_1")"
+    echo "ALSA node (playback_0) ID: $alsa0_node_id"
+    echo "ALSA node (playback_1) ID: $alsa1_node_id"
+    rtp0_node_id="$(echo "$formatted_output"  | get_id_by_object_path "rtp-sink:monitor_0")"
+    echo "RTP1 Node ID: $rtp0_node_id"
+    rtp1_node_id="$(echo "$formatted_output"  | get_id_by_object_path "rtp-sink:monitor_1")"
+    echo "RTP1 Node ID: $rtp1_node_id"
+
+
+    # Check if we got a non-empty ID
+    if [ -n "$alsa0_node_id" ] && [ -n "$alsa1_node_id" ] \
+       && [ -n "$rtp0_node_id" ] && [ -n "$rtp1_node_id" ]; then
+        echo "Linking..."
+        # pw-cli create-link out.object_id=$rtp0_node_id in.object_id=$alsa0_node_id
+        # pw-cli create-link out.object_id=$rtp1_node_id in.object_id=$alsa1_node_id
+#        pw-link $rtp0_node_id $alsa0_node_id
+#        pw-link $rtp1_node_id $alsa1_node_id
+#pw-link "PipeWire RTP stream:receive_CH1" "alsa_output._sys_devices_platform_rk809-sound_sound_card0.stereo-fallback:playback_FL"
+#pw-link "PipeWire RTP stream:receive_CH2" "alsa_output._sys_devices_platform_rk809-sound_sound_card0.stereo-fallback:playback_FR"
+
+    else
+        echo "Error: One or more node IDs were not found."
+        echo "Check your PipeWire setup or object paths."
+    fi
+}
+
+startAES67(){
+  startDbus
+  sleep 1
+  mktempDIR
+  startPipewire
+  sleep 2
+  pipewire-aes67 &
+  sleep 3
+  pipewire-media-session &
+  sleep 3
+  pipewireLink
+}
+
+stopAES67(){
+#  killall wireplumber
+  killall pipewire-media-session
+  killall pipewire-aes67
+  killall pipewire
+  killall dbus-daemon
+  sleep 1
+
+  rm -rf /tmp/pipewire.*
+}
+
+case "$1" in
+  start)
+    echo starting aes67 subsystem
+    startAES67
+	;;
+  stop)
+    echo stopping aes67 subsystem
+    stopAES67
+	;;
+  *)
+	echo "Usage: $0 {start|stop}"
+	exit 1
+esac
+
+exit $?
