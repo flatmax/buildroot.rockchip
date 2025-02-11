@@ -1,0 +1,2 @@
+export PIPEWIRE_RUNTIME_DIR=`ls -d /tmp/pipewire.*`
+echo PIPEWIRE_RUNTIME_DIR=$PIPEWIRE_RUNTIME_DIR

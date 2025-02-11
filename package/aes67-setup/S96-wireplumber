@@ -1,0 +1,27 @@
+#!/bin/sh
+
+export PIPEWIRE_RUNTIME_DIR=`ls -d /tmp/pipewire.*`
+echo PIPEWIRE_RUNTIME_DIR=$PIPEWIRE_RUNTIME_DIR
+
+case "$1" in
+  start)
+    echo starting wireplumber
+    killall pipewire-aes67
+    killall wireplumber
+    wireplumber &
+    sleep 1
+    pipewire-aes67 &
+    sleep 1
+    pw-metadata 0 default.configured.audio.sink '{ "name": "rtp-sink" }'
+	;;
+  stop)
+    echo stopping wireplumber
+    killall pipewire-aes67
+    killall wireplumber
+	;;
+  *)
+	echo "Usage: $0 {start|stop}"
+	exit 1
+esac
+
+exit $?
